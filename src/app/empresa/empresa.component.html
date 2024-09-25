@@ -1,0 +1,113 @@
+<div class="hero-section">
+    <div class="hero-content">
+        <h1 style="font-size:  70px;"><b>TU MEJOR OPCIÓN</b></h1>
+        <p style="font-size: 15px;">Transforma tus servicios y proyectos eléctricos con HTC. <br>
+            <strong style="font-size: 15px;">"Donde la calida y la confianza se iluminan".</strong>
+        </p>
+        <!-- <button mat-raised-button color="accent" (click)="navigateToStore()">CONOCE MÁS</button> -->
+    </div>
+</div>
+<!-- ////////////////servicios///////////////////////// -->
+<div class="servicios">
+    <div class="container">
+        <div class=" text-center p-4 ">
+            <h3>
+                <strong>
+                    <span style="color:rgb(0, 106, 255)">NUESTROS SERVICIOS</span>
+                </strong>
+            </h3>
+        </div>
+        <div class="servicio-grid">
+            <mat-card class="servicio-card" *ngFor="let servicio of servicios">
+                <img mat-card-image [src]="servicio.image" [alt]="servicio.name">
+                <mat-card-content>
+                    <h3>{{ servicio.name }}</h3>
+                    <p>{{ servicio.description }}</p>
+                    <!-- <p><strong>Precio: </strong>$ {{ servicio.price }}</p> -->
+                </mat-card-content>
+                <!-- <mat-card-actions>
+                <div class="button-container">
+                    <a (click)="addToCart(servicio)" class="button yellow">Añadir al carrito!!</a>
+                    <a [href]="url" class="button red">Comprar!!!</a>
+                </div>                
+            </mat-card-actions> -->
+            </mat-card>
+        </div>
+    </div>
+</div>
+<!-- /////////////////////NOSOTROS//////////////////////// -->
+<!-- ///////////////////proyectos//////////////////////// -->
+
+<h3 class="text-center">
+    <strong>
+        <span style="color:rgb(0, 106, 255)">PROYECTOS</span>
+    </strong>
+</h3>
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
+    <mat-tab label="Luminarias">
+        <div class="container">
+            <div class="row mt-4 mb-4">
+                <div class="col-4">
+                    <img src="###" alt="" width="100%">
+                </div>
+                <div class="col-8 ">
+                    <span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vitae illum ea non provident
+                        expedita molestiae consequatur aliquam soluta aperiam ullam voluptate quibusdam, facilis saepe
+                        possimus fuga odio adipisci aspernatur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt obcaecati adipisci cumque rerum doloribus laborum ipsum voluptatem odio quo aliquam ut, veritatis facere deleniti. Maiores expedita aliquam aperiam dolore quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, iste, rem, provident voluptas minus incidunt quaerat vitae quia natus earum quam itaque quod! Sunt, officia accusamus asperiores veritatis doloremque sed?</span>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+    <mat-tab label="Iluminación de vías">
+        <div class="container">
+            <div class="row mt-4 mb-4">
+                <div class="col-4">
+                    <img src="###" alt="" width="100%">
+                </div>
+                <div class="col-8 ">
+                    <span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vitae illum ea non provident
+                        expedita molestiae consequatur aliquam soluta aperiam ullam voluptate quibusdam, facilis saepe
+                        possimus fuga odio adipisci aspernatur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt obcaecati adipisci cumque rerum doloribus laborum ipsum voluptatem odio quo aliquam ut, veritatis facere deleniti. Maiores expedita aliquam aperiam dolore quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, iste, rem, provident voluptas minus incidunt quaerat vitae quia natus earum quam itaque quod! Sunt, officia accusamus asperiores veritatis doloremque sed?</span>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+    <mat-tab label="Mantenimiento de iluminarias">
+        <div class="container">
+            <div class="row mt-4 mb-4">
+                <div class="col-4">
+                    <img src="###" alt="" width="100%">
+                </div>
+                <div class="col-8 ">
+                    <span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo vitae illum ea non provident
+                        expedita molestiae consequatur aliquam soluta aperiam ullam voluptate quibusdam, facilis saepe
+                        possimus fuga odio adipisci aspernatur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt obcaecati adipisci cumque rerum doloribus laborum ipsum voluptatem odio quo aliquam ut, veritatis facere deleniti. Maiores expedita aliquam aperiam dolore quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, iste, rem, provident voluptas minus incidunt quaerat vitae quia natus earum quam itaque quod! Sunt, officia accusamus asperiores veritatis doloremque sed?</span>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+</mat-tab-group>
+<div class="cards-section">
+    <mat-card class="example-card" appearance="outlined" *ngFor="let card of cards">
+      <div class="icon-circle">
+        <mat-icon>{{ card.icon }}</mat-icon>
+      </div>
+      <mat-card-content>
+       <mat-card-title> <b>{{ card.title }}</b></mat-card-title>
+        <p>{{ card.content }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="empty-section"></div>
+  <div class="services-section">
+    <h2><b>NUESTROS PROYECTOS</b></h2>
+    <div class="services">
+      <div class="service-card" *ngFor="let service of services">
+        <div class="icon">
+          <i class="fas fa-lightbulb"></i>
+        </div>
+        <h3>{{service.title}}</h3>
+        <p>{{service.description}}</p>
+      </div>
+    </div>
+  </div>

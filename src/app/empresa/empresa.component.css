@@ -1,0 +1,153 @@
+.hero-section {
+    background: rgb(0, 106, 255);
+   width: 100%;
+   height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative; /* Para permitir la superposición de las tarjetas */
+  }
+  .empty-section {
+    height: 10px; /* Ajusta la altura según sea necesario */
+    background-color: #ffffff; /* Color de fondo opcional para diferenciar la sección */
+    margin: 50px 0; /* Espacio vertical superior e inferior */
+  }
+  .servicios{
+    margin-top: 200px;
+  }
+  .cards-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    gap: 15px;
+    padding: 0px;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 450px; /* Ajusta este valor según sea necesario */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: 10;
+  }
+  
+  .example-card {
+    text-align: center;
+    max-width: 250px;
+    margin: 0px;
+    background-color: #edf1f3;
+    color: black;
+    border-color: #3c1518;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Agrega transición para el hover */
+  }
+  
+  .example-card:hover {
+    transform: scale(1.05); /* Escala la tarjeta al pasar el mouse */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Añade sombra para un efecto de elevación */
+  }
+  
+  .mat-card {
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.mat-card-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.mat-card-content {
+    color: #6C5B7B;
+}
+
+.mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.mat-card-actions button {
+    background-color: #8B4513;
+    color: white;
+}
+.services-section {
+    text-align: center;
+    padding: 8rem;
+    background-color: rgb(0, 106, 255);
+    background-size: cover;
+    color: #fcfcf8;
+  }
+  
+  .services {
+    display: flex;
+    padding-top: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    color: white;
+  }
+  
+  .service-card {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 1rem;
+    max-width: 200px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #feba53;
+    transition: color 0.3s;
+  }
+  
+  .service-card:hover .icon {
+    color: #ffffff;
+  }
+  
+  @media (max-width: 768px) {
+    .services {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  
+    .service-card {
+      max-width: 100%;
+    }
+  }
+
+  .servicio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.servicio-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.servicio-card img {
+    object-fit: cover;
+    height: 200px;
+}
+.mat-tab-group {
+    margin-bottom: 48px;
+  }
+  
