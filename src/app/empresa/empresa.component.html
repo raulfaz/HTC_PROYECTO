@@ -1,6 +1,6 @@
 <div class="hero-section">
     <div class="hero-content">
-        <h1 style="font-size: 70px;"><b>TU MEJOR OPCIÓN</b></h1>
+        <h1 style="font-size: 65px;">TU MEJOR OPCIÓN</h1>
         <p style="font-size: 15px;">Transforma tus servicios y proyectos eléctricos con HTC. <br>
             <strong style="font-size: 15px;">"Donde la calida y la confianza se iluminan".</strong>
         </p>
@@ -8,9 +8,21 @@
 
     </div>
 </div>
-
+<!-- ////////////////cards///////////////////////// -->
+<div class="cards-section">
+  <mat-card class="example-card" appearance="outlined" *ngFor="let card of cards">
+    <div class="icon-circle">
+      <mat-icon>{{ card.icon }}</mat-icon>
+    </div>
+    <mat-card-content>
+      <mat-card-title> <b>{{ card.title }}</b></mat-card-title>
+      <p>{{ card.content }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div class="empty-section"></div>
 <!-- Nueva Sección: Imagen y Descripción de la Empresa -->
-<div class="container company-section  mb-5">
+<div class="container-form p-5 company-section ">
   <div class="row">
       <div class="col-md-6 company-image">
           <img src="\..\assets\img-generales\edificio.jpg" alt="Empresa" class="img-fluid rounded">
@@ -24,18 +36,7 @@
   </div>
 </div>
 
-<!-- ////////////////cards///////////////////////// -->
-<div class="cards-section">
-  <mat-card class="example-card" appearance="outlined" *ngFor="let card of cards">
-    <div class="icon-circle">
-      <mat-icon>{{ card.icon }}</mat-icon>
-    </div>
-    <mat-card-content>
-      <mat-card-title> <b>{{ card.title }}</b></mat-card-title>
-      <p>{{ card.content }}</p>
-    </mat-card-content>
-  </mat-card>
-</div>
+
 
 <!-- ///////////////////proyectos//////////////////////// -->
 

@@ -91,6 +91,11 @@
   margin-bottom: 0.5rem;
 }
 
+.empty-section {
+  height: 150px; /* Ajusta la altura según sea necesario */
+  background-color: #ffffff; /* Color de fondo opcional para diferenciar la sección */
+  margin: 50px 0; /* Espacio vertical superior e inferior */
+}
 /* Grid for Service Cards */
 .servicio-grid {
   display: grid;
@@ -181,10 +186,19 @@
 .cards-section {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  /* align-items: flex-start; */
+  text-align: center;
   gap: 20px;
   padding: 2rem 0;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 55%; /* Ajusta este valor según sea necesario */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 10;
 }
+
 
 .example-card {
   text-align: center;
