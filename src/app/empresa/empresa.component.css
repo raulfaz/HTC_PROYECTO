@@ -1,153 +1,386 @@
+/* Hero Section */
 .hero-section {
-    background: rgb(13, 65, 111);
-   width: 100%;
-   height: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    position: relative; /* Para permitir la superposición de las tarjetas */
-  }
-  .empty-section {
-    height: 10px; /* Ajusta la altura según sea necesario */
-    background-color: #ffffff; /* Color de fondo opcional para diferenciar la sección */
-    margin: 50px 0; /* Espacio vertical superior e inferior */
-  }
-  .servicios{
-    margin-top: 200px;
-  }
-  .cards-section {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    text-align: center;
-    gap: 15px;
-    padding: 0px;
-    flex-wrap: wrap;
-    position: absolute;
-    top: 450px; /* Ajusta este valor según sea necesario */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    z-index: 10;
-  }
-  
-  .example-card {
-    text-align: center;
-    max-width: 250px;
-    margin: 0px;
-    background-color: #edf1f3;
-    color: black;
-    border-color: #3c1518;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Agrega transición para el hover */
-  }
-  
-  .example-card:hover {
-    transform: scale(1.05); /* Escala la tarjeta al pasar el mouse */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Añade sombra para un efecto de elevación */
-  }
-  
-  .mat-card {
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-image: url('/../assets/img-fondos/fondo0.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 65vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  position: relative;
 }
 
-.mat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(13, 65, 111, 0.7);
+  z-index: 1;
 }
 
-.mat-card-title {
-    font-weight: bold;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
 }
 
-.mat-card-content {
-    color: #6C5B7B;
+.hero-section h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
-.mat-card-actions {
-    display: flex;
-    justify-content: flex-end;
+.hero-section p {
+  font-size: 1.70rem;
+  margin-bottom: 1rem;
 }
 
-.mat-card-actions button {
-    background-color: #8B4513;
-    color: white;
+.hero-section h1 b, .hero-section p strong {
+  font-size: 2rem;
 }
+
+/* Services Section */
 .services-section {
-    text-align: center;
-    padding: 8rem;
-    background-color: rgb(13, 65, 111);
-    background-size: cover;
-    color: #fcfcf8;
-  }
-  
-  .services {
-    display: flex;
-    padding-top: 50px;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    color: white;
-  }
-  
-  .service-card {
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
-    padding: 1rem;
-    max-width: 200px;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  
-  .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
-  }
-  
-  .icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: #feba53;
-    transition: color 0.3s;
-  }
-  
-  .service-card:hover .icon {
-    color: #ffffff;
-  }
-  
-  @media (max-width: 768px) {
-    .services {
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-  
-    .service-card {
-      max-width: 100%;
-    }
-  }
+  text-align: center;
+  padding: 6rem 1rem;
+  background-color: rgb(13, 65, 111);
+  color: #fcfcf8;
+}
 
-  .servicio-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 20px;
+.services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  color: white;
+}
+
+.service-card {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  padding: 1.5rem;
+  max-width: 250px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.service-card .icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #0F416F;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover .icon {
+  color: #ffffff;
+}
+
+.service-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Grid for Service Cards */
+.servicio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
 }
 
 .servicio-card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #edf1f3;
+  border-radius: 10px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .servicio-card img {
-    object-fit: cover;
-    height: 200px;
+  object-fit: cover;
+  height: 200px;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
+
+.servicio-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.servicio-card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.servicio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Project Tabs Section */
 .mat-tab-group {
-    margin-bottom: 48px;
+  margin-bottom: 48px;
+}
+
+.mat-tab-label {
+  font-weight: bold;
+}
+
+.mat-tab-body {
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.mat-tab-body img {
+  border-radius: 8px;
+}
+
+/* Quienes somos */
+
+.company-section {
+  padding: 40px 0;
+}
+
+.company-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.company-info {
+  padding: 20px;
+}
+
+.company-info h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.company-info p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 0; /* Para evitar espacio extra bajo el texto */
+}
+
+/* Cards Section */
+.cards-section {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 2rem 0;
+}
+
+.example-card {
+  text-align: center;
+  max-width: 250px;
+  margin: 0px;
+  background-color: #edf1f3;
+  color: black;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.example-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #0F416F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto;
+  color: white;
+  font-size: 2rem;
+}
+
+/* Linea de tiempo */
+.timeline-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #f4f4f9;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  color: #0d416f;
+  font-weight: bold;
+}
+
+.timeline-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.timeline-arrow {
+  background-color: #0d416f;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+}
+
+.timeline-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 30px; /* Espacio para los círculos y la línea */
+}
+
+.timeline-line {
+  position: absolute;
+  top: 30px; /* Mueve la línea más arriba */
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background-color: #0d416f;
+  z-index: 1;
+  border-radius: 3px;
+}
+
+.timeline-items {
+  display: flex;
+  transition: transform 0.5s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-item {
+  position: relative;
+  min-width: 300px;
+  max-width: 320px;
+  margin: 20px;
+  padding: 20px;
+  background-color: #0d416f;
+  color: white;
+  border-radius: 10px;
+  text-align: left;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.timeline-icon-circle {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8em;
+  color: #0d416f;
+  margin-bottom: 5px;
+}
+
+.timeline-date div {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: white;
+}
+
+.timeline-content h3 {
+  font-size: 1.4em;
+  margin: 15px 0;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.timeline-description {
+  font-size: 1em;
+  color: #e0e0e0;
+}
+
+.timeline-image {
+  width: 100%;
+  height: 150px;
+  background-color: #ffffff;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.timeline-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.timeline-item:hover {
+  transform: scale(1.03);
+  z-index: 2;
+}
+
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .services {
+    flex-direction: column;
   }
-  
+
+  .service-card {
+    max-width: 100%;
+  }
+
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-section p {
+    font-size: 1rem;
+  }
+
+  .company-section .row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .company-image, .company-info {
+      margin-bottom: 20px;
+  }
+}
+

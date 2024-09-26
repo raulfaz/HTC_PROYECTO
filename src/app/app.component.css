@@ -1,28 +1,72 @@
-.example-spacer {
-    flex: 1 1 auto;
-  }
-  .nav-links {
-    list-style-type: none; /* Quitar viñetas */
-    display: flex; /* Mostrar en fila */
-    gap: 10px; /* Espaciado entre elementos */
-    padding: 0; /* Sin padding */
-    margin: 0; /* Sin margen */
-    color: rgb(13, 65, 111);
+.navbar {
+  background-color: rgb(255, 255, 255); /* Fondo blanco elegante */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.logo {
+  height: 50px; /* Ajusta la altura del logo */
+  margin-right: 20px;
+  transition: transform 0.3s ease-in-out; /* Animación al hacer hover sobre el logo */
+}
+
+.logo:hover {
+  transform: scale(1.1); /* Pequeño zoom en el logo */
+}
+
+.title {
+  color: rgb(13, 65, 111);
+  font-size: 1.5rem; /* Tamaño de letra más formal */
+}
+
+.spacer {
+  flex: 1;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 20px;
 }
 
 .nav-links li {
-    margin: 0; /* Sin margen en los li */
+  margin: 0;
 }
 
 .nav-links a {
-    text-decoration: none; /* Quitar subrayado */
-    color: inherit; /* Heredar el color del texto */
-    padding: 10px; /* Espacio interno para hacer clic más fácil */
-    transition: background-color 0.3s; /* Transición suave para el hover */
+  font-size: 1rem;
+  padding: 10px 15px;
+  color: rgb(13, 65, 111);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease, background-color 0.3s ease; /* Animación suave */
 }
 
-.nav-links a:hover {
-    background-color: rgba(0, 0, 0, 0.1); /* Color de fondo al pasar el ratón */
-    border-radius: 5px; /* Bordes redondeados */
+.nav-links a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 3px;
+  background: rgb(13, 65, 111);
+  transition: width 0.3s;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
-  
+
+.nav-links a:hover::after {
+  width: 100%; /* Efecto de subrayado al pasar el ratón */
+}
+
+.active-link {
+  font-weight: bold;
+  color: rgb(13, 65, 111);
+}
+
+.active-link::after {
+  width: 100%; /* Mantener el subrayado en el enlace activo */
+  height: 3px;
+  background-color: rgb(13, 65, 111);
+  transition: width 0.3s;
+}

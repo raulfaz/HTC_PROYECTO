@@ -1,14 +1,13 @@
-<mat-toolbar>
-    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-        <mat-icon>menu</mat-icon>
-    </button> -->
-    <img src="assets/img-generales/logo-eslogan.png" alt="My App Logo" style="height: 70%; margin-right: 10px; padding: 0px;">
-   <strong><span style="color: rgb(13, 65, 111);">Un Mundo Eléctrico</span></strong> 
-    <span class="example-spacer"></span>
-    <ul class="nav-links" >
-        <li><a routerLink="/inicio">Inicio</a></li>
-        <li><a href="/empresa">Empresa</a></li>
-        <li><a href="/productos">Productos</a></li>
-    </ul>
+<mat-toolbar color="primary" class="navbar" style="padding: 0 20px;">
+  <img src="assets/img-generales/logo-eslogan.png" alt="My App Logo" class="logo">
+  <strong><span class="title">Un Mundo Eléctrico</span></strong>
+
+  <span class="spacer"></span>
+
+  <ul class="nav-links">
+    <li><a routerLink="/inicio" routerLinkActive="active-link">Inicio</a></li>
+    <li><a routerLink="/empresa" routerLinkActive="active-link">Empresa</a></li>
+    <li><a routerLink="/productos" routerLinkActive="active-link">Productos</a></li>
+  </ul>
 </mat-toolbar>
 <router-outlet></router-outlet>
