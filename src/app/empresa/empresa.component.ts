@@ -24,7 +24,7 @@ export class EmpresaComponent {
       year: '2015',
       title: 'Fundación de la empresa',
       description: 'Inicio de operaciones con un equipo profesional enfocado en soluciones eléctricas eficientes.',
-      image: "\..\assets\img-generales\logo.png" // Ruta de la imagen
+      image: "../assets/img-generales/logo.png" // Ruta de la imagen
     },
     {
       icon: 'public',

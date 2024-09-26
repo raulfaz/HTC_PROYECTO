@@ -230,20 +230,20 @@
 
 /* Linea de tiempo */
 .timeline-section {
-  padding: 50px;
+  /* padding: 50px; */
   text-align: center;
   background-color: #f4f4f9;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   position: relative;
   overflow: hidden;
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  /* max-width: 1200px; */
+  margin: 0 ;
 }
 
 h2 {
   font-size: 2.5em;
-  margin-bottom: 40px;
+  margin-top: 10px;
   color: #0d416f;
   font-weight: bold;
 }
