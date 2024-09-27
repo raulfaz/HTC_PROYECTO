@@ -3,11 +3,12 @@ import { CarrosulComponent } from '../carrosul/carrosul.component';
 import { RouterOutlet } from '@angular/router';
 import { SERVICIOS } from '../datos/servicios';
 import { CommonModule } from '@angular/common';
+import { FormCotizacionComponent } from '../form-cotizacion/form-cotizacion.component';
 
 @Component({
   selector: 'app-inicio',
   standalone: true,
-  imports: [CarrosulComponent,CommonModule],
+  imports: [CarrosulComponent,CommonModule,FormCotizacionComponent],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css'
 })
