@@ -94,57 +94,70 @@ export class EmpresaComponent {
     { title: 'Venta', description: 'Disponemos de una amplia gama de accesorios y equipos de sonido para complementar tu instrumento musical de cualquier marca.' },
   ];
 
+  activeIndex = 0;
+
+  nextService() {
+    this.activeIndex = (this.activeIndex + 1) % this.servicios.length;
+  }
+
+  prevService() {
+    this.activeIndex = (this.activeIndex - 1 + this.servicios.length) % this.servicios.length;
+  }
+
   servicios = [
     {
-      image: "/../assets/img-servicios/img1.jpg", // Reemplaza con la ruta de la imagen correspondiente
+      image: "/../assets/img-servicios/img1.jpg",
       name: "Proyecto Redes de distribución",
-      description: "Redes de baja, media y alta tensión, implementando infraestructuras de distribución eficientes y seguras."
+      description: "Implementamos redes de baja, media y alta tensión, asegurando una infraestructura de distribución eficiente y segura. Nuestro enfoque está en adaptar cada proyecto a las necesidades específicas de nuestros clientes, utilizando materiales de alta calidad y técnicas innovadoras."
     },
     {
-      image: "/../assets/img-servicios/img2.jpeg", // Reemplaza con la ruta de la imagen correspondiente
+      image: "/../assets/img-servicios/img2.jpeg",
       name: "Proyecto de Alumbrado público",
-      description: "Iluminación de vías con luminarias de sodio y luminarias red. Mantenimiento y supervisión de las luminarias de la ciudad."
+      description: "Diseñamos y mantenemos sistemas de iluminación en vías públicas, utilizando luminarias de alta calidad para garantizar la seguridad y visibilidad. Nuestra experiencia en el sector nos permite realizar instalaciones duraderas y eficientes, contribuyendo al bienestar de la comunidad."
     },
     {
-      image: "/../assets/img-servicios/img3.jpeg", // Reemplaza con la ruta de la imagen correspondiente
+      image: "/../assets/img-servicios/img3.jpeg",
       name: "Proyecto de Iluminación Ornamental",
-      description: "Creación de una imagen ornamental y festiva para la Lorena, utilizando guirnaldas de iluminación."
+      description: "Transformamos espacios con iluminación ornamental, creando ambientes festivos y atractivos mediante el uso de guirnaldas y elementos decorativos. Nos aseguramos de que cada diseño refleje la estética deseada, elevando la experiencia visual en eventos y celebraciones."
     },
     {
-      image: "/../assets/img-servicios/img4.jpeg", // Reemplaza con la ruta de la imagen correspondiente
+      image: "/../assets/img-servicios/img4.jpeg",
       name: "Proyecto de Paneles Solares",
-      description: "Instalación de paneles solares, aprovechando energías renovables para un futuro más sostenible."
+      description: "Instalamos paneles solares para aprovechar energías renovables, reduciendo costos energéticos y contribuyendo a un futuro más sostenible. Nuestro equipo se encarga de cada etapa del proceso, desde la planificación hasta la instalación, garantizando una integración eficiente en tu hogar o negocio."
     },
     {
-      image: "/../assets/img-servicios/img5.jpeg", // Reemplaza con la ruta de la imagen correspondiente
+      image: "/../assets/img-servicios/img5.jpeg",
       name: "Proyecto de Iluminación Residencial",
-      description: "Iluminación eficiente y moderna para entornos residenciales, brindando seguridad y confort en cada hogar."
+      description: "Ofrecemos soluciones de iluminación moderna y eficiente para hogares, mejorando la seguridad y creando un ambiente confortable. Nuestro objetivo es personalizar cada instalación, asegurando que cada rincón de tu hogar cuente con la luz adecuada para realzar su belleza."
     },
     {
-      image: "/../assets/img-servicios/img6.jpg", // Reemplaza con la ruta de la imagen correspondiente
+      image: "/../assets/img-servicios/img6.jpg",
       name: "Proyecto de Control Eléctrico",
-      description: "Desarrollo de tableros de control eléctricos personalizados para distintos proyectos industriales y comerciales."
+      description: "Desarrollamos tableros de control eléctricos personalizados para optimizar la operación en proyectos industriales y comerciales. Trabajamos de la mano con nuestros clientes para diseñar soluciones que maximicen la eficiencia y seguridad de sus instalaciones eléctricas."
     },
     {
-      image: "/../assets/img-servicios/img7.jpeg", // Reemplaza con la ruta de la imagen correspondiente
+      image: "/../assets/img-servicios/img7.jpeg",
       name: "Proyecto de Construcción Civil",
-      description: "Planificación y ejecución de proyectos de construcción civil, desde el diseño hasta la puesta en marcha."
+      description: "Realizamos proyectos de construcción civil de alta calidad, desde la planificación hasta la ejecución, garantizando resultados a medida. Nuestro enfoque integral abarca todas las fases del proyecto, asegurando cumplimiento de plazos y estándares de calidad."
     },
     {
-      image: "/../assets/img-servicios/img8.jpeg", // Reemplaza con la ruta de la imagen correspondiente
+      image: "/../assets/img-servicios/img8.jpeg",
       name: "Proyecto de Subestaciones",
-      description: "Diseño y construcción de subestaciones eléctricas para mejorar la distribución de energía en la región."
+      description: "Diseñamos y construimos subestaciones eléctricas para mejorar la distribución de energía, asegurando un suministro confiable y eficiente. Con un enfoque en la innovación, utilizamos tecnologías avanzadas para optimizar el rendimiento de las instalaciones eléctricas."
     },
     {
-      image: "/../assets/img-servicios/img9.jpeg", // Reemplaza con la ruta de la imagen correspondiente
+      image: "/../assets/img-servicios/img9.jpeg",
       name: "Instalación de Medidores",
-      description: "Instalación de medidores bifásicos y trifásicos, asegurando la correcta medición del consumo eléctrico."
+      description: "Instalamos medidores bifásicos y trifásicos, asegurando una medición precisa del consumo eléctrico para una gestión eficiente de la energía. Nuestros expertos realizan la instalación y calibración, brindando asesoramiento sobre el uso y mantenimiento de los dispositivos."
     },
     {
-      image: "/../assets/img-servicios/img10.jpeg", // Reemplaza con la ruta de la imagen correspondiente
+      image: "/../assets/img-servicios/img10.jpeg",
       name: "Revisión e Inspección de Medidores",
-      description: "Inspección y mantenimiento preventivo de medidores eléctricos para garantizar su funcionamiento óptimo."
+      description: "Realizamos inspección y mantenimiento preventivo de medidores eléctricos, garantizando su óptimo funcionamiento y prolongando su vida útil. Nuestro equipo realiza diagnósticos precisos y ofrece recomendaciones para asegurar una medición continua y efectiva."
     }
   ];
+
+
+
 
 }

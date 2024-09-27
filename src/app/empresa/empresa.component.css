@@ -1,4 +1,4 @@
-/* Hero Section */
+/* Hero Section -----------------------------------------------------*/
 .hero-section {
   background-image: url('/../assets/img-fondos/fondo0.jpg');
   background-size: cover;
@@ -45,7 +45,18 @@
   font-size: 2rem;
 }
 
-/* Services Section */
+/* imagen ----------------------------------------------------*/
+
+img {
+  transition: transform 0.5s ease-in-out;
+}
+
+img:hover {
+  transform: translateY(-10px) scale(1.05);
+}
+
+
+/* Services Section ----------------------------------------------------*/
 .services-section {
   text-align: center;
   padding: 6rem 1rem;
@@ -96,7 +107,7 @@
   background-color: #ffffff; /* Color de fondo opcional para diferenciar la sección */
   margin: 50px 0; /* Espacio vertical superior e inferior */
 }
-/* Grid for Service Cards */
+/* Grid for Service Cards ------------------------------------------------*/
 .servicio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -135,7 +146,7 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Project Tabs Section */
+/* Project Tabs Section -------------------------------------------*/
 .mat-tab-group {
   margin-bottom: 48px;
 }
@@ -153,7 +164,7 @@
   border-radius: 8px;
 }
 
-/* Quienes somos */
+/* Quienes somos ----------------------------------------------------*/
 
 .company-section {
   padding: 40px 0;
@@ -182,7 +193,7 @@
   margin-bottom: 0; /* Para evitar espacio extra bajo el texto */
 }
 
-/* Cards Section */
+/* Cards Section ------------------------------------------------------*/
 .cards-section {
   display: flex;
   justify-content: center;
@@ -228,17 +239,14 @@
   font-size: 2rem;
 }
 
-/* Linea de tiempo */
+/* Línea de tiempo -----------------------------------------------------*/
 .timeline-section {
-  /* padding: 50px; */
   text-align: center;
   background-color: #f4f4f9;
-  /* border-radius: 10px; */
   position: relative;
   overflow: hidden;
   width: 100%;
-  /* max-width: 1200px; */
-  margin: 0 ;
+  margin: 0;
 }
 
 h2 {
@@ -250,7 +258,7 @@ h2 {
 
 .timeline-carousel {
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* Alineación ajustada para que los botones queden más arriba */
   justify-content: space-between;
   position: relative;
 }
@@ -273,7 +281,7 @@ h2 {
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding-top: 30px; /* Espacio para los círculos y la línea */
+  padding-top: 20px; /* Espacio ajustado para los círculos y la línea */
 }
 
 .timeline-line {
@@ -296,61 +304,30 @@ h2 {
 
 .timeline-item {
   position: relative;
-  min-width: 300px;
-  max-width: 320px;
-  margin: 20px;
-  padding: 20px;
-  background-color: #0d416f;
-  color: white;
+  width: 350px; /* Ancho ajustado */
+  margin: 0 15px; /* Margen lateral */
+  padding: 15px;
+  background-color: #ffffff; /* Color de fondo más neutro */
+  color: #0d416f; /* Color de texto más claro */
   border-radius: 10px;
-  text-align: left;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+  transition: transform 0.2s; /* Suave efecto de hover */
 }
 
-.timeline-date {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-bottom: 15px;
+.timeline-item:hover {
+  transform: translateY(-5px); /* Efecto sutil de elevación al pasar el cursor */
 }
 
-.timeline-icon-circle {
-  width: 50px;
-  height: 50px;
-  background-color: rgb(0, 0, 0);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.8em;
-  color: #0d416f;
-  margin-bottom: 5px;
-}
-
-.timeline-date div {
-  font-size: 1.2em;
-  font-weight: bold;
-  color: white;
-}
-
-.timeline-content h3 {
-  font-size: 1.4em;
-  margin: 15px 0;
-  color: #ffffff;
-  font-weight: bold;
-}
-
-.timeline-description {
-  font-size: 1em;
-  color: #e0e0e0;
+.timeline-content {
+  display: flex; /* Flexbox para crear columnas */
+  align-items: center; /* Alineación centrada */
 }
 
 .timeline-image {
-  width: 100%;
-  height: 150px;
-  background-color: #ffffff;
-  margin-bottom: 10px;
+  width: 150px; /* Ancho fijo para la imagen */
+  height: 150px; /* Altura fija para la imagen */
+  background-color: #eaeaea; /* Color de fondo neutro */
+  margin-right: 15px; /* Espaciado entre imagen y texto */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -360,14 +337,118 @@ h2 {
 .timeline-image img {
   max-width: 100%;
   max-height: 100%;
+  object-fit: cover; /* Asegura que la imagen cubra el área */
+}
+
+.timeline-text {
+  flex: 1; /* Ocupa el espacio restante */
+}
+
+.timeline-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 10px; /* Ajustado para un mejor espaciado */
+}
+
+.timeline-icon-circle {
+  width: 40px; /* Tamaño del círculo */
+  height: 40px; /* Tamaño del círculo */
+  background-color: rgb(240, 240, 240); /* Color de fondo más claro */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em; /* Tamaño de icono */
+  color: #0d416f;
+  margin-bottom: 5px;
+}
+
+.timeline-date div {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #0d416f; /* Color de texto para las fechas */
+}
+
+.timeline-content h3 {
+  font-size: 1.4em;
+  margin: 10px 0; /* Margen ajustado */
+  color: #0d416f; /* Color de título más neutro */
+  font-weight: bold;
+}
+
+.timeline-description {
+  font-size: 0.9em;
+  color: #666; /* Color de texto para la descripción más suave */
+}
+
+
+/* Cambios no se ---------------------------------------*/
+/* Servicios Interactivo ----------------------------------------------------*/
+.servicio-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.servicio-item {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #edf1f3;
+  padding: 40px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 1000px;
+  height: 500px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
+}
+
+.servicio-item.active {
+  display: flex;
+}
+
+.servicio-content {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.servicio-image img {
+  width: 350px;
+  height: 250px;
+  border-radius: 10px;
   object-fit: cover;
 }
 
-.timeline-item:hover {
-  transform: scale(1.03);
-  z-index: 2;
+.buttons {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+  max-width: 300px;
 }
 
+.button-prev, .button-next {
+  background-color: #0d416f;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-prev:hover, .button-next:hover {
+  background-color: #08426f;
+}
 
 
 /* Responsive Styles */
@@ -395,6 +476,25 @@ h2 {
 
   .company-image, .company-info {
       margin-bottom: 20px;
+  }
+  .servicio-item {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .servicio-image img {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .servicio-content {
+    padding-right: 0;
+  }
+
+  .buttons {
+
+    bottom: 10px;
   }
 }
 
