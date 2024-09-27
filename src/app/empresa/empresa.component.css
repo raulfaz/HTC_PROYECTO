@@ -469,69 +469,7 @@ h2 {
   .hero-section p {
     font-size: 1rem;
   }
-  .servicio-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-  }
 
-  .servicio-item {
-    display: none;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #edf1f3;
-    padding: 40px;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 1000px;
-    height: 500px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.5s ease;
-  }
-
-  .servicio-item.active {
-    display: flex;
-  }
-
-  .servicio-content {
-    flex: 1;
-    padding-right: 40px;
-  }
-
-  .servicio-image img {
-    width: 350px;
-    height: 250px;
-    border-radius: 10px;
-    object-fit: cover;
-  }
-
-  .buttons {
-    position: absolute;
-    bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 20px;
-    max-width: 300px;
-  }
-
-  .button-prev, .button-next {
-    background-color: #0d416f;
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  .button-prev:hover, .button-next:hover {
-    background-color: #08426f;
-  }
   .company-section .row {
     flex-direction: column;
     text-align: center;
