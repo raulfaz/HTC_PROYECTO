@@ -153,6 +153,7 @@ img:hover {
 
 .mat-tab-label {
   font-weight: bold;
+  color: white;
 }
 
 .mat-tab-body {
