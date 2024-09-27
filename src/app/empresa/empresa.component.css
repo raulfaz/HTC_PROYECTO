@@ -165,7 +165,7 @@ img:hover {
   border-radius: 8px;
 }
 
-/* Quienes somos ----------------------------------------------------*/
+/* Estilos para la Sección Quienes Somos-------------------------------*/
 
 .company-section {
   padding: 40px 0;
@@ -174,25 +174,39 @@ img:hover {
 .company-image img {
   width: 100%;
   height: auto;
-  object-fit: cover;
+  object-fit: cover; /* La imagen se ajusta al espacio sin deformarse */
   border-radius: 8px; /* Bordes redondeados */
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Sombra suave para la imagen */
 }
 
 .company-info {
   padding: 20px;
+  display: flex;
+  align-items: center; /* Centrar contenido verticalmente */
+  justify-content: center; /* Alinear horizontalmente el contenido */
 }
 
 .company-info h2 {
   font-size: 32px;
   margin-bottom: 20px;
+  color: #0d416f; /* Color principal del título */
+  font-weight: bold;
+  text-align: center; /* Centrar el título */
 }
 
 .company-info p {
   font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 0; /* Para evitar espacio extra bajo el texto */
+  line-height: 1.5; /* Espaciado entre líneas para mejorar la legibilidad */
+  text-align: justify; /* Texto justificado para ocupar todo el ancho */
+  margin-bottom: 10px; /* Espacio entre párrafos */
+  color: #333; /* Color de texto más suave */
 }
+
+.company-text {
+  text-align: justify; /* Justificación completa del texto en ambos lados */
+  max-width: 100%; /* Ocupa todo el ancho disponible */
+}
+
 
 /* Cards Section ------------------------------------------------------*/
 .cards-section {
