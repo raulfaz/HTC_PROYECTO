@@ -239,7 +239,7 @@ img:hover {
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.proyectos-importantes .col-8 span {
+.proyectos-importantes .col-md-8 span {
   display: block;
   font-size: 16px;
   line-height: 1.8; /* Espaciado para una mejor legibilidad */
@@ -569,6 +569,11 @@ h2 {
   .buttons {
 
     bottom: 10px;
+  }
+  .empty-section {
+    height: 78%; /* Ajusta la altura según sea necesario */
+    background-color: #ffffff; /* Color de fondo opcional para diferenciar la sección */
+    margin: 100px 0; /* Espacio vertical superior e inferior */
   }
 }
 
