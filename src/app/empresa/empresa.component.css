@@ -107,6 +107,7 @@ img:hover {
   background-color: #ffffff; /* Color de fondo opcional para diferenciar la sección */
   margin: 50px 0; /* Espacio vertical superior e inferior */
 }
+
 /* Grid for Service Cards ------------------------------------------------*/
 .servicio-grid {
   display: grid;
@@ -122,6 +123,7 @@ img:hover {
   border-radius: 10px;
   padding: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /*text-align: justify;  Texto justificado */
 }
 
 .servicio-card img {
@@ -145,6 +147,7 @@ img:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+
 
 /* Project Tabs Section -------------------------------------------*/
 .mat-tab-group {
@@ -292,7 +295,7 @@ img:hover {
   font-size: 2rem;
 }
 
-/* Línea de tiempo -----------------------------------------------------*/
+/* Sección de la línea de tiempo */
 .timeline-section {
   text-align: center;
   background-color: #f4f4f9;
@@ -311,7 +314,7 @@ h2 {
 
 .timeline-carousel {
   display: flex;
-  align-items: flex-start; /* Alineación ajustada para que los botones queden más arriba */
+  align-items: center;
   justify-content: space-between;
   position: relative;
 }
@@ -331,15 +334,15 @@ h2 {
 }
 
 .timeline-wrapper {
-  position: relative;
-  width: 100%;
+  width: 80%; /* Más espacio para la línea de tiempo */
   overflow: hidden;
-  padding-top: 20px; /* Espacio ajustado para los círculos y la línea */
+  position: relative;
+  padding-top: 20px;
 }
 
 .timeline-line {
   position: absolute;
-  top: 30px; /* Mueve la línea más arriba */
+  top: 50px;
   left: 0;
   width: 100%;
   height: 6px;
@@ -350,91 +353,47 @@ h2 {
 
 .timeline-items {
   display: flex;
-  transition: transform 0.5s ease;
-  position: relative;
-  z-index: 2;
+  transition: transform 0.5s ease-in-out;
 }
 
 .timeline-item {
-  position: relative;
-  width: 350px; /* Ancho ajustado */
-  margin: 0 15px; /* Margen lateral */
-  padding: 15px;
-  background-color: #ffffff; /* Color de fondo más neutro */
-  color: #0d416f; /* Color de texto más claro */
+  width: 500px; /* Ancho ajustado para tarjetas más anchas */
+  margin: 0 30px; /* Margen lateral */
+  padding: 20px;
+  background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra más suave */
-  transition: transform 0.2s; /* Suave efecto de hover */
-}
-
-.timeline-item:hover {
-  transform: translateY(-5px); /* Efecto sutil de elevación al pasar el cursor */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0; /* Evitar que las tarjetas se reduzcan */
+  text-align: left;
 }
 
 .timeline-content {
-  display: flex; /* Flexbox para crear columnas */
-  align-items: center; /* Alineación centrada */
-}
-
-.timeline-image {
-  width: 150px; /* Ancho fijo para la imagen */
-  height: 150px; /* Altura fija para la imagen */
-  background-color: #eaeaea; /* Color de fondo neutro */
-  margin-right: 15px; /* Espaciado entre imagen y texto */
   display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.timeline-image img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover; /* Asegura que la imagen cubra el área */
-}
-
-.timeline-text {
-  flex: 1; /* Ocupa el espacio restante */
+  flex-direction: column;
 }
 
 .timeline-date {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-bottom: 10px; /* Ajustado para un mejor espaciado */
-}
-
-.timeline-icon-circle {
-  width: 40px; /* Tamaño del círculo */
-  height: 40px; /* Tamaño del círculo */
-  background-color: rgb(240, 240, 240); /* Color de fondo más claro */
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5em; /* Tamaño de icono */
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
   color: #0d416f;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
-.timeline-date div {
-  font-size: 1.2em;
+.timeline-header h3 {
+  font-size: 1.6em;
+  color: #0d416f;
   font-weight: bold;
-  color: #0d416f; /* Color de texto para las fechas */
-}
-
-.timeline-content h3 {
-  font-size: 1.4em;
-  margin: 10px 0; /* Margen ajustado */
-  color: #0d416f; /* Color de título más neutro */
-  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .timeline-description {
-  font-size: 0.9em;
-  color: #666; /* Color de texto para la descripción más suave */
+  font-size: 1.1em;
+  color: #666;
 }
+
+
+
 
 
 /* Cambios no se ---------------------------------------*/

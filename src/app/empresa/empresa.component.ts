@@ -19,58 +19,62 @@ export class EmpresaComponent {
   servicios = SERVICIOS
 
   currentPosition = 0;
-  itemWidth = 320; // Ajuste para el ancho de las tarjetas
+  itemWidth = 400; // Nuevo ancho ajustado de la tarjeta
 
   timelineData = [
     {
       icon: 'business',
       year: '2015',
       title: 'Fundación de la empresa',
-      description: 'Inicio de operaciones con un equipo profesional enfocado en soluciones eléctricas eficientes.',
-      image: "../assets/img-generales/logo.png" // Ruta de la imagen
+      description: 'Inicio de operaciones con un equipo profesional enfocado en soluciones eléctricas eficientes.'
     },
     {
       icon: 'public',
       year: '2018',
       title: 'Expansión internacional',
-      description: 'Nos expandimos hacia nuevos mercados en Latinoamérica, con oficinas en varios países.',
-      image: '\..\assets\img-generales\logo-esloga.png'
+      description: 'Nos expandimos hacia nuevos mercados en Latinoamérica, con oficinas en varios países.'
     },
     {
       icon: 'bolt',
       year: '2020',
       title: 'Innovación y nuevas tecnologías',
-      description: 'Introducción de nuevas tecnologías en nuestros servicios, apostando por la innovación.',
-      image: '\..\assets\img-generales\logo.png'
+      description: 'Introducción de nuevas tecnologías en nuestros servicios, apostando por la innovación.'
     },
     {
       icon: 'engineering',
       year: '2022',
       title: 'Crecimiento del equipo',
-      description: 'El equipo de la empresa creció con la incorporación de nuevos especialistas en diversas áreas.',
-      image: '\..\assets\img-generales\edificio.jpg'
+      description: 'El equipo de la empresa creció con la incorporación de nuevos especialistas en diversas áreas.'
     },
     {
       icon: 'lightbulb',
       year: '2024',
       title: 'Sostenibilidad y energías renovables',
-      description: 'Liderazgo en soluciones sostenibles, con un enfoque en proyectos de energía renovable.',
-      image: '\..\assets\img-generales\edificio.jpg'
+      description: 'Liderazgo en soluciones sostenibles, con un enfoque en proyectos de energía renovable.'
     }
   ];
 
+  // Al hacer clic en el botón izquierdo
   prevSlide() {
-    if (this.currentPosition < 0) {
+    if (this.currentPosition === 0) {
+      this.currentPosition = -(this.itemWidth * (this.timelineData.length - 1)); // Vuelve al último
+    } else {
       this.currentPosition += this.itemWidth;
     }
   }
 
+  // Al hacer clic en el botón derecho
   nextSlide() {
-    if (this.currentPosition > -(this.itemWidth * (this.timelineData.length - 1))) {
+    if (this.currentPosition <= -(this.itemWidth * (this.timelineData.length - 1))) {
+      this.currentPosition = 0; // Vuelve al primero
+    } else {
       this.currentPosition -= this.itemWidth;
     }
   }
 
+
+
+  // cards con las áreas y explicaciones para SOPORTE TÉCNICO
   cards = [
     {
       icon: 'engineering',
@@ -90,12 +94,27 @@ export class EmpresaComponent {
   ];
 
 
+
+  // Array 'services' actualizado con las áreas de SOPORTE TÉCNICO
   services = [
-    { title: 'Asesoría', description: 'Ofrecemos un servicio de asesoría personalizada para ayudarte a elegir el instrumento musical que mejor se adapte a tus necesidades.' },
-    { title: 'Reparación', description: 'Proporcionamos servicios completos de reparación y mantenimiento para todos los tipos de instrumentos musicales.' },
-    { title: 'Clases', description: 'Ofrecemos clases de música para una variedad de instrumentos, incluyendo guitarra, piano, batería, y muchos más.' },
-    { title: 'Venta', description: 'Disponemos de una amplia gama de accesorios y equipos de sonido para complementar tu instrumento musical de cualquier marca.' },
+    {
+      title: 'Soporte Eléctrico',
+      description: 'Brindamos asistencia técnica especializada para resolver problemas eléctricos, asegurando un servicio rápido y eficiente para mantener tus instalaciones en óptimas condiciones.'
+    },
+    {
+      title: 'Atención Personalizada',
+      description: 'Ofrecemos un servicio de atención personalizada para garantizar que todas tus consultas y problemas técnicos sean resueltos a la mayor brevedad posible.'
+    },
+    {
+      title: 'Mantenimiento Preventivo',
+      description: 'Realizamos mantenimiento preventivo en tus sistemas eléctricos, con el fin de evitar fallos y asegurar un rendimiento continuo y seguro de tu infraestructura.'
+    },
+    {
+      title: 'Innovación y Actualización',
+      description: 'Nos mantenemos actualizados con las últimas tecnologías, implementando soluciones innovadoras y eficientes para mejorar la capacidad de tu sistema eléctrico.'
+    }
   ];
+
 
   activeIndex = 0;
 

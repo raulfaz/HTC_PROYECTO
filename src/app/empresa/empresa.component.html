@@ -133,85 +133,75 @@
 </div>
 
 
-  <!-- ////////////////servicios///////////////////////// -->
-  <div class="servicios">
-    <div class="container">
-      <div class=" text-center p-4 ">
-        <h3>
-          <strong>
-            <span style="color:rgb(13, 65, 111)">NUESTROS SERVICIOS</span>
-          </strong>
-        </h3>
-      </div>
-      <div class="servicio-grid">
-        <mat-card class="servicio-card" *ngFor="let servicio of servicios">
-          <img mat-card-image [src]="servicio.image" [alt]="servicio.name">
-          <mat-card-content>
-            <h3>{{ servicio.name }}</h3>
-            <p>{{ servicio.description }}</p>
-            <!-- <p><strong>Precio: </strong>$ {{ servicio.price }}</p> -->
-          </mat-card-content>
-          <!-- <mat-card-actions>
-                <div class="button-container">
-                    <a (click)="addToCart(servicio)" class="button yellow">Añadir al carrito!!</a>
-                    <a [href]="url" class="button red">Comprar!!!</a>
-                </div>
-            </mat-card-actions> -->
-        </mat-card>
-      </div>
+<!-- //////////////// NUESTROS SERVICIOS ///////////////////////// -->
+<div class="servicios">
+  <div class="container">
+    <div class="text-center p-4">
+      <h3>
+        <strong>
+          <span style="color: rgb(13, 65, 111)">NUESTROS SERVICIOS</span>
+        </strong>
+      </h3>
+    </div>
+    <div class="servicio-grid">
+      <!-- Recorriendo servicios dinámicamente -->
+      <mat-card class="servicio-card" *ngFor="let servicio of servicios">
+        <img mat-card-image [src]="servicio.image" [alt]="servicio.name">
+        <mat-card-content>
+          <h3>{{ servicio.name }}</h3>
+          <p>{{ servicio.description }}</p>
+        </mat-card-content>
+      </mat-card>
     </div>
   </div>
-  <!-- /////////////////////NOSOTROS//////////////////////// -->
+</div>
 
-  <div class="services-section">
-    <h2 style="color:rgb(255, 255, 255)"><b>NUESTROS PROYECTOS</b></h2>
-    <div class="services">
-      <div class="service-card" *ngFor="let service of services">
-        <div class="icon">
-          <mat-icon>lightbulb</mat-icon>
-        </div>
-        <h3>{{ service.title }}</h3>
-        <p>{{ service.description }}</p>
+<!-- /////////////////////SOPORTE TÉCNICO//////////////////////// -->
+
+<div class="services-section">
+  <h2 style="color:rgb(255, 255, 255)"><b>SOPORTE TÉCNICO</b></h2>
+  <div class="services">
+    <div class="service-card" *ngFor="let service of services">
+      <div class="icon">
+        <mat-icon>lightbulb</mat-icon>
       </div>
+      <h3>{{ service.title }}</h3>
+      <p>{{ service.description }}</p>
     </div>
   </div>
+</div>
 
-  <!-- Nueva Sección: Línea de Tiempo -->
-  <div class="timeline-section ">
-    <h2>NUESTRA HISTORIA</h2>
-    <div class="timeline-carousel ">
-      <button class="timeline-arrow left" (click)="prevSlide()">
-        <mat-icon>chevron_left</mat-icon>
-      </button>
 
-      <div class="timeline-wrapper">
-        <div class="timeline-line"></div>
+<!-- Nueva Sección: Línea de Tiempo -->
+<div class="timeline-section">
+  <h2>NUESTRA HISTORIA</h2>
+  <div class="timeline-carousel">
+    <button class="timeline-arrow left" (click)="prevSlide()">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
 
-        <div class="timeline-items" [style.transform]="'translateX(' + currentPosition + 'px)'">
-          <div class="timeline-item" *ngFor="let item of timelineData">
-            <div class="timeline-header">
-              <div class="timeline-icon-circle">
-                <mat-icon>{{ item.icon }}</mat-icon>
+    <div class="timeline-wrapper">
+      <div class="timeline-line"></div>
+      <div class="timeline-items" [style.transform]="'translateX(' + currentPosition + 'px)'">
+        <div class="timeline-item" *ngFor="let item of timelineData">
+          <div class="timeline-header">
+            <h3>{{ item.title }}</h3>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-text">
+              <div class="timeline-date">
+                <div>{{ item.year }}</div>
               </div>
-              <h3>{{ item.title }}</h3>
-            </div>
-            <div class="timeline-content">
-              <div class="timeline-image">
-                <img [src]="item.image" alt="Imagen de {{ item.year }}">
-              </div>
-              <div class="timeline-text">
-                <div class="timeline-date">
-                  <div>{{ item.year }}</div>
-                </div>
-                <p class="timeline-description">{{ item.description }}</p>
-              </div>
+              <p class="timeline-description">{{ item.description }}</p>
             </div>
           </div>
         </div>
       </div>
-
-      <button class="timeline-arrow right" (click)="nextSlide()">
-        <mat-icon>chevron_right</mat-icon>
-      </button>
     </div>
+
+    <button class="timeline-arrow right" (click)="nextSlide()">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
   </div>
+</div>
+

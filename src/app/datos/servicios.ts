@@ -54,5 +54,15 @@ export const SERVICIOS: Servicios[] = [
     image: "/../assets/img-servicios/img10.jpeg",
     name: "Revisión e Inspección de Medidores",
     description: "Realizamos inspección y mantenimiento preventivo de medidores eléctricos, garantizando su óptimo funcionamiento y prolongando su vida útil. Nuestro equipo realiza diagnósticos precisos y ofrece recomendaciones para asegurar una medición continua y efectiva."
+  },
+  {
+    image: "/../assets/img-servicios/img11.jpeg",
+    name: "Servicio Particular Grúa",
+    description: "Ofrecemos servicio de grúa especializado para el transporte de vehículos, asegurando un traslado rápido y seguro. Nuestro equipo profesional está disponible las 24 horas del día, garantizando asistencia en situaciones de emergencia o transporte planificado."
+  },
+  {
+    image: "/../assets/img-servicios/img12.jpeg",
+    name: "Asesoría Especializada",
+    description: "Proporcionamos asesoría técnica especializada en proyectos eléctricos e industriales, ayudando a nuestros clientes a tomar decisiones informadas y eficientes. Nuestro equipo de expertos está preparado para ofrecer soluciones personalizadas a cada necesidad."
   }
 ];
