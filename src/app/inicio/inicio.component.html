@@ -1,28 +1,43 @@
 <app-carrosul></app-carrosul>
-<div class="servicios">
-  <div class="container">
-      <div class="text-center p-4">
-          <h3>
-              <strong>
-                  <span style="color:rgb(13, 65, 111)">NUESTROS SERVICIOS</span>
-              </strong>
-          </h3>
-      </div>
-      <div class="servicio-container">
-          <div class="servicio-item" *ngFor="let servicio of servicios; let i = index" [class.active]="i === activeIndex">
-              <div class="servicio-content">
-                  <h3>{{ servicio.name }}</h3>
-                  <p>{{ servicio.description }}</p>
-              </div>
-              <div class="servicio-image">
-                  <img [src]="servicio.image" [alt]="servicio.name">
-              </div>
-          </div>
-          <div class="buttons">
-              <button class="button-prev" (click)="prevService()">Anterior</button>
-              <button class="button-next" (click)="nextService()">Siguiente</button>
-          </div>
-      </div>
-  </div>
+<div class="container">
+    <!-- /////////////////TARJETAS DE SERVICIOS/////////////////////// -->
+    <div class="card-grid">
+        <div class="card mt-5" *ngFor="let servicio of servicios">
+            <div class="image-box">
+                <img [src]="servicio.image" [alt]="servicio.name">
+            </div>
+            <div class="content">
+                <h5>{{ servicio.name }}</h5>
+            </div>
+        </div>
+    </div>
+    <!-- ///////////////////SERVICIOS//////////////////////// -->
+    <div class="servicios">
+
+        <div class="text-center p-4">
+            <h3>
+                <strong>
+                    <span style="color:rgb(13, 65, 111)">NUESTROS SERVICIOS</span>
+                </strong>
+            </h3>
+        </div>
+        <div class="servicio-container">
+            <div class="servicio-item" *ngFor="let servicio of servicios; let i = index"
+                [class.active]="i === activeIndex">
+                <div class="servicio-content">
+                    <h3>{{ servicio.name }}</h3>
+                    <p>{{ servicio.description }}</p>
+                </div>
+                <div class="servicio-image">
+                    <img [src]="servicio.image" [alt]="servicio.name">
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="button-prev" (click)="prevService()">Anterior</button>
+                <button class="button-next" (click)="nextService()">Siguiente</button>
+            </div>
+        </div>
+    </div>
 </div>
+<!-- ////////////FORMULARIO DE COTIZACION////////////// -->
 <app-form-cotizacion></app-form-cotizacion>
