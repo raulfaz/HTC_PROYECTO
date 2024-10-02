@@ -4,11 +4,12 @@ import { RouterOutlet } from '@angular/router';
 import { SERVICIOS } from '../datos/servicios';
 import { CommonModule } from '@angular/common';
 import { FormCotizacionComponent } from '../form-cotizacion/form-cotizacion.component';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-inicio',
   standalone: true,
-  imports: [CarrosulComponent,CommonModule,FormCotizacionComponent],
+  imports: [CarrosulComponent,CommonModule,FormCotizacionComponent,MatCardModule],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css'
 })
