@@ -59,7 +59,7 @@ img:hover {
 /* Services Section ----------------------------------------------------*/
 .services-section {
   text-align: center;
-  padding: 6rem 1rem;
+  padding: 3rem 1rem;
   background-color: rgb(13, 65, 111);
   color: #fcfcf8;
 }
@@ -295,19 +295,20 @@ img:hover {
   font-size: 2rem;
 }
 
-/* Sección de la línea de tiempo */
-.timeline-section {
+/* Sección de la línea de tiempo ----------------- */
+/* .timeline-section {
   text-align: center;
   background-color: #f4f4f9;
   position: relative;
   overflow: hidden;
   width: 100%;
-  margin: 0;
+  padding: 50px 20px;
+  box-sizing: border-box;
 }
 
 h2 {
   font-size: 2.5em;
-  margin-top: 10px;
+  margin-bottom: 30px;
   color: #0d416f;
   font-weight: bold;
 }
@@ -331,21 +332,21 @@ h2 {
   align-items: center;
   justify-content: center;
   font-size: 2em;
+  z-index: 10;
 }
 
 .timeline-wrapper {
-  width: 80%; /* Más espacio para la línea de tiempo */
+  width: 80%;
   overflow: hidden;
   position: relative;
-  padding-top: 20px;
 }
 
 .timeline-line {
   position: absolute;
-  top: 50px;
-  left: 0;
-  width: 100%;
-  height: 6px;
+  bottom: -30px;
+  left: 10%;
+  width: 80%;
+  height: 4px;
   background-color: #0d416f;
   z-index: 1;
   border-radius: 3px;
@@ -357,14 +358,28 @@ h2 {
 }
 
 .timeline-item {
-  width: 500px; /* Ancho ajustado para tarjetas más anchas */
-  margin: 0 30px; /* Margen lateral */
+  width: 400px;
+  margin: 0 30px;
   padding: 20px;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  flex-shrink: 0; /* Evitar que las tarjetas se reduzcan */
+  flex-shrink: 0;
   text-align: left;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-item:before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background-color: #0d416f;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -35px;
+  left: calc(50% - 7.5px);
+  z-index: 3;
 }
 
 .timeline-content {
@@ -390,8 +405,97 @@ h2 {
 .timeline-description {
   font-size: 1.1em;
   color: #666;
+} */
+
+
+/* Linea de tiempo 2 ----------------------------------- */
+.mat-stepper-horizontal {
+  margin-top: 8px;
 }
 
+.mat-step-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+p {
+  font-size: 14px;
+}
+
+.timeline-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 30px;
+  background-color: #EDF1F3;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-stepper {
+  padding: 10px;
+}
+
+.timeline-content {
+  margin-bottom: 15px;
+}
+
+.timeline-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+  .timeline-container {
+    padding: 15px;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .timeline-stepper {
+    flex-direction: column;
+  }
+}
+
+
+
+/* Responsividad para dispositivos móviles */
+@media (max-width: 768px) {
+  .timeline-wrapper {
+    width: 100%;
+  }
+
+  .timeline-item {
+    width: 80%; /* Reduce el tamaño de las tarjetas en pantallas pequeñas */
+    margin: 20px auto;
+  }
+
+  .timeline-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5em;
+  }
+
+  .timeline-line {
+    bottom: -20px; /* Ajusta la posición de la línea en pantallas pequeñas */
+    left: 5%;
+    width: 90%;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+
+  .timeline-date {
+    font-size: 1.3em;
+  }
+
+  .timeline-description {
+    font-size: 1em;
+  }
+}
 
 
 

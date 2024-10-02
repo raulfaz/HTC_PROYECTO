@@ -30,7 +30,7 @@
     </div>
     <div class="col-md-6 company-info d-flex justify-content-center align-items-center">
       <div class="company-text">
-        <h2><b>¿Quiénes Somos?</b></h2>
+        <h2><b>¿QUIÉNES SOMOS?</b></h2>
         <p>
           En <b>HTC</b>, nos especializamos en ofrecer soluciones completas para los sectores eléctrico y de
           iluminación,
@@ -68,17 +68,22 @@
     <!-- Proyecto Ornamental -->
     <mat-tab label="Ornamental">
       <div class="container">
-      <div class="row mt-4 mb-4">
-        <div class="col-12 col-md-4  mb-2">
-        <img src="\..\assets\img-servicios\lorena.jpg" alt="Proyecto Ornamental" width="100%">
+        <div class="row mt-4 mb-4">
+          <div class="col-12 col-md-4  mb-2">
+            <img src="\..\assets\img-servicios\lorena.jpg" alt="Proyecto Ornamental" width="100%">
+          </div>
+
+          <div class="col-12 col-md-8 ">
+            <span>
+              El proyecto de <b>Iluminación Ornamental</b> se llevó a cabo en la <b>calle La Lorena</b>, donde se
+              implementaron sistemas de iluminación decorativa de alta calidad, diseñados para realzar la estética de
+              las áreas urbanas. Gracias a una combinación de tecnología avanzada y diseño innovador, hemos transformado
+              esta zona en un espacio visualmente atractivo, seguro y eficiente en consumo energético. Cada detalle del
+              proyecto fue supervisado por nuestro equipo técnico, asegurando que se cumplan los más altos estándares de
+              durabilidad y eficiencia.
+            </span>
+          </div>
         </div>
-       
-        <div class="col-12 col-md-8 ">
-        <span >
-          El proyecto de <b>Iluminación Ornamental</b> se llevó a cabo en la <b>calle La Lorena</b>, donde se implementaron sistemas de iluminación decorativa de alta calidad, diseñados para realzar la estética de las áreas urbanas. Gracias a una combinación de tecnología avanzada y diseño innovador, hemos transformado esta zona en un espacio visualmente atractivo, seguro y eficiente en consumo energético. Cada detalle del proyecto fue supervisado por nuestro equipo técnico, asegurando que se cumplan los más altos estándares de durabilidad y eficiencia.
-        </span>
-        </div>
-      </div>
       </div>
     </mat-tab>
 
@@ -91,7 +96,12 @@
           </div>
           <div class="col-12 col-md-8">
             <span>
-              Nuestro <b>proyecto de Iluminación Vial</b> tiene como objetivo mejorar la seguridad y la visibilidad en las principales carreteras de la ciudad. Utilizamos luminarias de alta eficiencia energética que no solo garantizan un excelente rendimiento en la iluminación nocturna, sino que también contribuyen a la reducción del consumo eléctrico y las emisiones de CO₂. Este proyecto se destaca por su rápida instalación y su adaptabilidad a diversas condiciones climáticas, asegurando así una infraestructura sostenible y duradera.
+              Nuestro <b>proyecto de Iluminación Vial</b> tiene como objetivo mejorar la seguridad y la visibilidad en
+              las principales carreteras de la ciudad. Utilizamos luminarias de alta eficiencia energética que no solo
+              garantizan un excelente rendimiento en la iluminación nocturna, sino que también contribuyen a la
+              reducción del consumo eléctrico y las emisiones de CO₂. Este proyecto se destaca por su rápida instalación
+              y su adaptabilidad a diversas condiciones climáticas, asegurando así una infraestructura sostenible y
+              duradera.
             </span>
           </div>
         </div>
@@ -107,7 +117,11 @@
           </div>
           <div class="col-12 col-md-8">
             <span>
-              El <b>proyecto de Paneles Solares</b> representa nuestro compromiso con las energías renovables y la sostenibilidad. Hemos implementado soluciones fotovoltaicas para distintos clientes, permitiéndoles aprovechar la energía solar como una fuente limpia y abundante. Este proyecto no solo reduce considerablemente la dependencia de fuentes de energía convencionales, sino que también optimiza los costos operativos a largo plazo, ofreciendo una solución ecológica y rentable.
+              El <b>proyecto de Paneles Solares</b> representa nuestro compromiso con las energías renovables y la
+              sostenibilidad. Hemos implementado soluciones fotovoltaicas para distintos clientes, permitiéndoles
+              aprovechar la energía solar como una fuente limpia y abundante. Este proyecto no solo reduce
+              considerablemente la dependencia de fuentes de energía convencionales, sino que también optimiza los
+              costos operativos a largo plazo, ofreciendo una solución ecológica y rentable.
             </span>
           </div>
         </div>
@@ -123,7 +137,11 @@
           </div>
           <div class="col-12 col-md-8">
             <span>
-              En HTC, también ofrecemos servicios especializados de <b>Mantenimiento de Luminarias</b>, asegurando que nuestros sistemas de iluminación funcionen de manera óptima durante toda su vida útil. Nuestro equipo de expertos realiza inspecciones periódicas, sustitución de componentes defectuosos y ajustes para garantizar que cada instalación mantenga su rendimiento y eficiencia. Este servicio forma parte de nuestro compromiso con la excelencia y la satisfacción de nuestros clientes.
+              En HTC, también ofrecemos servicios especializados de <b>Mantenimiento de Luminarias</b>, asegurando que
+              nuestros sistemas de iluminación funcionen de manera óptima durante toda su vida útil. Nuestro equipo de
+              expertos realiza inspecciones periódicas, sustitución de componentes defectuosos y ajustes para garantizar
+              que cada instalación mantenga su rendimiento y eficiencia. Este servicio forma parte de nuestro compromiso
+              con la excelencia y la satisfacción de nuestros clientes.
             </span>
           </div>
         </div>
@@ -137,13 +155,14 @@
 <!-- //////////////// NUESTROS SERVICIOS ///////////////////////// -->
 <div class="servicios">
   <div class="container">
-    <div class="text-center p-4">
-      <h3>
+    <div>
+      <h3 class="text-center p-4" style="color: rgb(13, 65, 111)">
         <strong>
-          <span style="color: rgb(13, 65, 111)">NUESTROS SERVICIOS</span>
+          <b>NUESTROS SERVICIOS</b>
         </strong>
       </h3>
     </div>
+
     <div class="servicio-grid">
       <!-- Recorriendo servicios dinámicamente -->
       <mat-card class="servicio-card" *ngFor="let servicio of servicios">
@@ -160,7 +179,13 @@
 <!-- /////////////////////SOPORTE TÉCNICO//////////////////////// -->
 
 <div class="services-section">
-  <h2 style="color:rgb(255, 255, 255)"><b>SOPORTE TÉCNICO</b></h2>
+  <div>
+    <h3 class="text-center p-4" style="color:rgb(255, 255, 255)">
+      <strong>
+        <b>SOPORTE TÉCNICO</b>
+      </strong>
+    </h3>
+  </div>
   <div class="services">
     <div class="service-card" *ngFor="let service of services">
       <div class="icon">
@@ -174,8 +199,14 @@
 
 
 <!-- Nueva Sección: Línea de Tiempo -->
-<div class="timeline-section">
-  <h2>NUESTRA HISTORIA</h2>
+<!-- <div class="timeline-section">
+  <div>
+    <h3 class="text-center p-4" style="color: rgb(13, 65, 111)">
+      <strong>
+        <b>NUESTRA HISTORIA</b>
+      </strong>
+    </h3>
+  </div>
   <div class="timeline-carousel">
     <button class="timeline-arrow left" (click)="prevSlide()">
       <mat-icon>chevron_left</mat-icon>
@@ -204,5 +235,36 @@
       <mat-icon>chevron_right</mat-icon>
     </button>
   </div>
+</div> -->
+
+
+<!-- Línea de tiempo: NUESTRA HISTORIA -->
+<div class="timeline-container" style="background-color: #EDF1F3; padding: 20px;">
+  <div class="text-center p-4">
+    <h3 style="color: rgb(13, 65, 111); margin-bottom: 30px;">
+      <strong>NUESTRA HISTORIA</strong>
+    </h3>
+  </div>
+
+  <mat-stepper [linear]="isLinear" #stepper class="timeline-stepper" [orientation]="isMobile ? 'vertical' : 'horizontal'">
+    <mat-step *ngFor="let item of timelineData; let i = index">
+      <ng-template matStepLabel>{{ item.year }}</ng-template>
+
+      <!-- Contenido de la línea de tiempo -->
+      <div class="timeline-content">
+        <h3 style="color: rgb(13, 65, 111); margin-bottom: 10px;">{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+      </div>
+
+      <!-- Botones de navegación -->
+      <div class="timeline-buttons">
+        <button mat-button matStepperPrevious *ngIf="i > 0">Anterior</button>
+        <button mat-button matStepperNext *ngIf="i < timelineData.length - 1">Siguiente</button>
+        <button mat-button color="primary" (click)="stepper.reset()" *ngIf="i === timelineData.length - 1">Reiniciar</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
 </div>
+
+
 

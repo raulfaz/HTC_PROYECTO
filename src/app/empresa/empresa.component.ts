@@ -5,12 +5,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { CommonModule } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
+import {MatStepperModule} from '@angular/material/stepper';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { SERVICIOS } from '../datos/servicios';
 
 @Component({
   selector: 'app-empresa',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule, MatGridListModule, MatTabsModule],
+  imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule, MatGridListModule, MatTabsModule, MatStepperModule],
   templateUrl: './empresa.component.html',
   styleUrl: './empresa.component.css'
 })
@@ -20,6 +22,9 @@ export class EmpresaComponent {
 
   currentPosition = 0;
   itemWidth = 400; // Nuevo ancho ajustado de la tarjeta
+
+  isLinear = false;
+  isMobile = false;
 
   timelineData = [
     {
@@ -53,6 +58,12 @@ export class EmpresaComponent {
       description: 'Liderazgo en soluciones sostenibles, con un enfoque en proyectos de energía renovable.'
     }
   ];
+
+  constructor(private breakpointObserver: BreakpointObserver) {
+    this.breakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
+      this.isMobile = result.matches;
+    });
+  }
 
   // Al hacer clic en el botón izquierdo
   prevSlide() {
