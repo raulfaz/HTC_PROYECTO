@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { CommonModule } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
-import {MatStepperModule} from '@angular/material/stepper';
+import { MatStepperModule } from '@angular/material/stepper';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { SERVICIOS } from '../datos/servicios';
 
@@ -28,36 +28,38 @@ export class EmpresaComponent {
 
   timelineData = [
     {
-      icon: 'business',
+      icon: 'business_center', // Representa la creación de la empresa
       year: '2015',
-      title: 'Fundación de la empresa',
-      description: 'Inicio de operaciones con un equipo profesional enfocado en soluciones eléctricas eficientes.'
+      title: 'Constitución de HINGELECTC CIA. LTDA.',
+      description: 'Se inició formalmente nuestras operaciones en Santo Domingo de los Tsáchilas, estableciendo la empresa con un enfoque claro en la provisión de servicios de redes eléctricas. Desde el inicio, nos comprometimos a ofrecer soluciones eficientes y de calidad a nuestros clientes, estableciendo una base sólida para el crecimiento futuro.'
     },
     {
-      icon: 'public',
+      icon: 'domain', // Representa la expansión y crecimiento
       year: '2018',
-      title: 'Expansión internacional',
-      description: 'Nos expandimos hacia nuevos mercados en Latinoamérica, con oficinas en varios países.'
+      title: 'Crecimiento y Proyectos Estratégicos',
+      description: 'Durante este periodo, logramos un notable crecimiento al desarrollar proyectos estratégicos en colaboración con importantes empresas eléctricas del país. Esta etapa no solo marcó la expansión de nuestra cartera de clientes, sino que también nos permitió incursionar en nuevos mercados en Ecuador, diversificando nuestras oportunidades de negocio.'
     },
     {
-      icon: 'bolt',
+      icon: 'bolt', // Relacionado con energía y electricidad
       year: '2020',
-      title: 'Innovación y nuevas tecnologías',
-      description: 'Introducción de nuevas tecnologías en nuestros servicios, apostando por la innovación.'
+      title: 'Nuevas Líneas de Negocio',
+      description: 'En respuesta a las demandas del mercado, diversificamos nuestras operaciones para incluir obras civiles y proyectos de infraestructura. Esta expansión nos permitió ofrecer soluciones integrales que abarcan tanto el sector eléctrico como el de la construcción, fortaleciendo nuestra posición competitiva y ampliando nuestro alcance en el mercado.'
     },
     {
-      icon: 'engineering',
+      icon: 'groups', // Simboliza el equipo y los valores
       year: '2022',
-      title: 'Crecimiento del equipo',
-      description: 'El equipo de la empresa creció con la incorporación de nuevos especialistas en diversas áreas.'
+      title: 'Fortalecimiento del Equipo y Alianzas',
+      description: 'A lo largo de este año, nos enfocamos en la incorporación de talento especializado, lo que fortaleció nuestro equipo y nuestras capacidades operativas. Además, establecimos alianzas estratégicas con otras empresas del sector, lo que nos permitió optimizar recursos y expandir nuestras capacidades de servicio.'
     },
     {
-      icon: 'lightbulb',
+      icon: 'public', // Representa sostenibilidad y expansión
       year: '2024',
-      title: 'Sostenibilidad y energías renovables',
-      description: 'Liderazgo en soluciones sostenibles, con un enfoque en proyectos de energía renovable.'
+      title: 'Compromiso con la Sostenibilidad',
+      description: 'Conscientes de nuestra responsabilidad social, implementamos prácticas sostenibles en nuestros proyectos. Esta iniciativa no solo responde a un compromiso ético con el medio ambiente, sino que también nos posiciona como un referente en el sector eléctrico, destacando por la calidad y sostenibilidad de nuestras soluciones.'
     }
   ];
+
+
 
   constructor(private breakpointObserver: BreakpointObserver) {
     this.breakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
