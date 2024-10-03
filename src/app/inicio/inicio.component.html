@@ -1,6 +1,14 @@
 <app-carrosul></app-carrosul>
 <div class="container">
     <!-- /////////////////TARJETAS DE SERVICIOS/////////////////////// -->
+    <div>
+      <h3 class="text-center p-3" style="color: rgb(13, 65, 111)">
+        <strong>
+          <b>NUESTROS SERVICIOS</b>
+        </strong>
+      </h3>
+    </div>
+
     <div class="card-grid">
         <div class="card mt-5" *ngFor="let servicio of servicios">
             <div class="image-box">
@@ -11,9 +19,9 @@
             </div>
         </div>
     </div>
+
     <!-- ///////////////////SERVICIOS//////////////////////// -->
     <div class="servicios">
-
         <div class="text-center p-4">
             <h3>
                 <strong>
@@ -38,6 +46,8 @@
             </div>
         </div>
     </div>
+
+
 </div>
 <!-- ////////////FORMULARIO DE COTIZACION////////////// -->
 <app-form-cotizacion></app-form-cotizacion>
