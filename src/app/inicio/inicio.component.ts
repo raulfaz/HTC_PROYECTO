@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CarrosulComponent } from '../carrosul/carrosul.component';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { SERVICIOS } from '../datos/servicios';
 import { CommonModule } from '@angular/common';
 import { FormCotizacionComponent } from '../form-cotizacion/form-cotizacion.component';
@@ -9,7 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 @Component({
   selector: 'app-inicio',
   standalone: true,
-  imports: [CarrosulComponent,CommonModule,FormCotizacionComponent,MatCardModule],
+  imports: [CarrosulComponent,CommonModule,FormCotizacionComponent,MatCardModule, RouterLink, RouterOutlet],
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css'
 })

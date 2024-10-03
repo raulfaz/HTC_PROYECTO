@@ -53,7 +53,7 @@ export class EmpresaComponent {
     },
     {
       icon: 'public', // Representa sostenibilidad y expansión
-      year: '2024',
+      year: '2023',
       title: 'Compromiso con la Sostenibilidad',
       description: 'Conscientes de nuestra responsabilidad social, implementamos prácticas sostenibles en nuestros proyectos. Esta iniciativa no solo responde a un compromiso ético con el medio ambiente, sino que también nos posiciona como un referente en el sector eléctrico, destacando por la calidad y sostenibilidad de nuestras soluciones.'
     }

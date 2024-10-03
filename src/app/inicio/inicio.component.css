@@ -117,3 +117,76 @@
   grid-template-columns: repeat(4, 1fr);
   /* Ajusta el espacio entre las tarjetas */
 }
+
+
+/* VALORES DE LA EMPRESA ----------------------*/
+.servicios {
+  padding: 20px 0; /* Espaciado superior e inferior de toda la sección */
+  margin: 0; /* Sin margen externo */
+}
+
+.valores-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%; /* Asegurando que ocupe el 100% */
+}
+
+.valores-left {
+  flex: 1;
+  padding: 30px; /* Espaciado interno para la sección izquierda */
+  display: flex;
+  background-color: #EDF1F3;
+  flex-direction: column;
+  justify-content: center; /* Centrando verticalmente */
+  text-align: center; /* Centrando texto */
+}
+
+.valores-right {
+  flex: 1;
+  background-color: #04407c; /* Azul más oscuro */
+  padding: 40px 90px 40px;
+  color: white; /* Color de texto */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrando verticalmente */
+}
+
+.valores-item {
+  margin-bottom: 10px; /* Espaciado entre los valores */
+}
+
+.valores-button {
+  background-color: #003366; /* Azul más oscuro */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 20px; /* Espaciado superior del botón */
+}
+
+.valores-button:hover {
+  background-color: #776767; /* Color al pasar el mouse */
+}
+
+/* Responsivo ----------------------*/
+@media (max-width: 768px) {
+  .valores-container {
+      flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
+      padding: 10px; /* Espaciado interno reducido */
+  }
+
+  .valores-left,
+  .valores-right {
+      padding: 15px; /* Espaciado interno para ambos lados en móviles */
+  }
+
+  .valores-item {
+      margin-bottom: 8px; /* Espaciado entre los valores en móviles */
+  }
+
+  .valores-button {
+      width: 100%; /* Botón ocupa todo el ancho en móviles */
+  }
+}

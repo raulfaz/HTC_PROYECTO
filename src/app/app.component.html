@@ -14,41 +14,51 @@
   </ul>
 </mat-toolbar>
 <router-outlet></router-outlet>
-<footer class="bg-white text-center text-lg-start text-dark ">
+<footer class="bg-white text-center text-lg-start text-dark">
   <div class="container p-4">
     <div class="row">
       <!-- Columna 1: Logo y frase -->
-      <div class="col-lg-3 col-md-12 mb-4 mb-md-0">
-        <img src="../assets/img-generales/logo1.png" alt="logo" class="footer-logo">
-        <br><br>
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0 d-flex flex-column align-items-center">
+        <img src="../assets/img-generales/logo1.png" alt="logo" class="footer-logo" style="width: 100%; max-width: 150px; height: auto; margin-bottom: 10px;">
         <p style="color: #0d416f;">
-          "¡Confía en HTC! Innovación y eficiencia para <br>
-          soluciones eléctricas que aseguran el éxito <br>
+          "¡Confía en HTC! Innovación y eficiencia para
+          soluciones eléctricas que aseguran el éxito
           de tus proyectos."
         </p>
       </div>
 
-      <!-- Columna 2: Contacto -->
-      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+      <!-- Columna 2: Contactos -->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0 d-flex flex-column align-items-center">
         <h5 class="text-uppercase" style="color: #0d416f;">Contáctenos</h5>
-        <ul class="list-unstyled mb-0" style="color: #4d4d4d;">
-          <li>📞 +593 99 123 4567</li>
-          <li>📞 +593 98 765 4321</li>
-          <li>📞 +593 97 654 3210</li>
-          <li>✉️ info&#64;htc.com</li> <!-- Usamos &#64; para el @ -->
-        </ul>
+        <div style="color: #4d4d4d; text-align: center;">
+          <strong>JEFE DE VENTAS</strong><br>
+          Contacto: Darwin Fernando Loaiza Bravo<br>
+          📞 099 729 2098<br>
+          ✉ <a href="mailto:d.loaiza@grupo-htc.com" style="color: inherit;">d.loaiza&#64;grupo-htc.com</a><br><br>
+          <strong>ASESOR DE VENTAS</strong><br>
+          Contacto: Henry Carlos Pereira Naranjo<br>
+          📞 099 738 2937<br>
+          ✉ <a href="mailto:h.pereira@grupo-htc.com" style="color: inherit;">h.pereira&#64;grupo-htc.com</a><br><br>
+          <strong>Contacto General</strong><br>
+          📞 02 378 2176<br>
+          📞 098-554-2516<br>
+          ✉ <a href="mailto:hingelectc@gmail.com" style="color: inherit;">hingelectc&#64;gmail.com</a>
+        </div>
       </div>
 
       <!-- Columna 3: Horarios de Atención -->
-      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0 d-flex flex-column align-items-center">
         <h5 class="text-uppercase" style="color: #0d416f;">Horarios de Atención</h5>
-        <p style="color: #4d4d4d;">Lunes a Sábados<br>8:00 AM - 5:00 PM</p>
+        <p style="color: #4d4d4d; text-align: center;">
+          Lunes a Viernes<br>8:00 AM - 5:00 PM<br>
+          Sábados<br>8:00 AM - 12:00 PM
+        </p>
       </div>
 
       <!-- Columna 4: Redes Sociales -->
-      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0 d-flex flex-column align-items-center">
         <h5 class="text-uppercase" style="color: #0d416f;">Redes Sociales</h5>
-        <ul class="list-unstyled mb-0" style="color: #4d4d4d;">
+        <ul class="list-unstyled mb-0" style="color: #4d4d4d; text-align: center;">
           <li>
             <a href="https://www.facebook.com" target="_blank">
               <i class="fab fa-facebook-f"></i> Facebook
@@ -70,9 +80,16 @@
   </div>
 
   <div class="text-center p-3 bg-light-gray text-dark-gray">
-     © Copyright 2015 - 2024 | Un Mundo Eléctrico de Grupo HTC | Todos los derechos reservados | Desarrollado por ...
+    © Copyright 2015 - 2024 | Un Mundo Eléctrico de Grupo HTC | Todos los derechos reservados | Desarrollado por ...
   </div>
 </footer>
+
+
+
+
+
+
+
 
 
 
