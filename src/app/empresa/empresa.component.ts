@@ -35,7 +35,7 @@ export class EmpresaComponent {
     },
     {
       icon: 'domain', // Representa la expansión y crecimiento
-      year: '2018',
+      year: '2016',
       title: 'Crecimiento y Proyectos Estratégicos',
       description: 'Durante este periodo, logramos un notable crecimiento al desarrollar proyectos estratégicos en colaboración con importantes empresas eléctricas del país. Esta etapa no solo marcó la expansión de nuestra cartera de clientes, sino que también nos permitió incursionar en nuevos mercados en Ecuador, diversificando nuestras oportunidades de negocio.'
     },

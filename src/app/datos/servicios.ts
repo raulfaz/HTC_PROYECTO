@@ -56,7 +56,7 @@ export const SERVICIOS: Servicios[] = [
     description: "Realizamos inspección y mantenimiento preventivo de medidores eléctricos, garantizando su óptimo funcionamiento y prolongando su vida útil. Nuestro equipo realiza diagnósticos precisos y ofrece recomendaciones para asegurar una medición continua y efectiva."
   },
   {
-    image: "/../assets/img-servicios/img11.jpeg",
+    image: "/../assets/img-servicios/img11.jpg",
     name: "Servicio Particular Grúa",
     description: "Ofrecemos servicio de grúa especializado para el transporte de vehículos, asegurando un traslado rápido y seguro. Nuestro equipo profesional está disponible las 24 horas del día, garantizando asistencia en situaciones de emergencia o transporte planificado."
   },
