@@ -113,7 +113,7 @@
 }
 
 /* Texto de la tarjeta */
-.card .content h5, .card .content p {
+.card .content p, .card .content p {
   margin: 0;
 }
 
