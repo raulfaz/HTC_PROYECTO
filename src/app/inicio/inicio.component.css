@@ -94,7 +94,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  border: 2px solid white; /* Se mantiene el borde blanco */
+  border: 2px solid white;
   border-radius: inherit;
   opacity: 0;
   transition: 0.4s ease-in-out;
@@ -259,7 +259,16 @@
   /* Color al pasar el mouse */
 }
 
-/* Responsivo ----------------------*/
+
+/* MAPA DE UBICACION --------------------------------------------------*/
+/* En pantallas más grandes */
+@media (min-width: 992px) {
+  .mapa-container iframe {
+    height: 330px; /* Mayor altura en pantallas grandes */
+  }
+}
+
+/* Responsivo --------------------------------------------------------*/
 @media (max-width: 768px) {
   .valores-container {
     flex-direction: column;
@@ -282,5 +291,33 @@
   .valores-button {
     width: 100%;
     /* Botón ocupa todo el ancho en móviles */
+  }
+}
+
+/* MISIÓN ---------------------------------------------------------- */
+.mision-container {
+  padding: 20px;
+  margin: 40px auto;
+  max-width: 800px;
+  text-align: center;
+}
+
+.mision-title {
+  color: #0a1e30; /* Un tono más oscuro que el azul marino */
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.mision-text {
+  color: rgb(13, 65, 111); /* Azul marino */
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+@media (min-width: 768px) {
+  .mision-text {
+    font-size: 14px; /* Letra más pequeña para pantallas más grandes */
   }
 }

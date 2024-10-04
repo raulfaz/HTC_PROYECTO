@@ -1,68 +1,79 @@
 <app-carrosul></app-carrosul>
 <div class="container">
-    <!-- /////////////////TARJETAS DE SERVICIOS/////////////////////// -->
-    <div>
-      <h3 class="text-center p-3" style="color: rgb(13, 65, 111); margin-top: 20px">
+
+  <!-- /////////////////MISIÓN/////////////////////// -->
+  <div class="mision-container">
+    <h2 class="mision-title">Nuestra Misión</h2>
+    <p class="mision-text">
+      como socio estratégico de cada cliente.
+      Brindar soluciones integrales en proyectos eléctricos y de infraestructura civil, así como también dotar al mercado de bienes de la más alta calidad tanto en el ramo eléctrico como constructivo. Nos esmeramos en generar la menor huella ambiental posible y en otorgar al cliente una experiencia diferenciadora, que se apalanca en un equipo humano comprometido y competente, que entiende el propósito de HTC como socio estratégico de cada cliente .
+      <br>
+    </p>
+  </div>
+
+
+  <!-- /////////////////TARJETAS DE SERVICIOS/////////////////////// -->
+  <div>
+    <h3 class="text-center" style="color: rgb(13, 65, 111); margin-top: 30px">
+      <strong>
+        <b>NUESTROS SERVICIOS</b>
+      </strong>
+    </h3>
+  </div>
+
+  <div class="card-grid">
+    <div class="card mt-5" *ngFor="let servicio of servicios">
+      <div class="image-box">
+        <img [src]="servicio.image" [alt]="servicio.name">
+      </div>
+      <div class="content">
+        <p>{{ servicio.name }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ///////////////////VALORES//////////////////////// -->
+  <div class="servicios">
+    <div class="text-center p-4">
+      <h3>
         <strong>
-          <b>NUESTROS SERVICIOS</b>
+          <span style="color: rgb(13, 65, 111)">
+            <b>NUESTROS VALORES</b>
+          </span>
         </strong>
       </h3>
     </div>
-
-    <div class="card-grid">
-        <div class="card mt-5" *ngFor="let servicio of servicios">
-            <div class="image-box">
-                <img [src]="servicio.image" [alt]="servicio.name">
-            </div>
-            <div class="content">
-                <p>{{ servicio.name }}</p>
-            </div>
-        </div>
-    </div>
-
- <!-- ///////////////////VALORES//////////////////////// -->
- <div class="servicios">
-  <div class="text-center p-4">
-      <h3>
-          <strong>
-              <span style="color: rgb(13, 65, 111)">
-                  <b>NUESTROS VALORES</b>
-              </span>
-          </strong>
-      </h3>
-  </div>
-  <div class="valores-container">
+    <div class="valores-container">
       <div class="valores-left">
-          <h1>Los valores que nos definen como empresa</h1>
-          <button class="valores-button" routerLink="/empresa" routerLinkActive="active-link">
-              MÁS SOBRE NOSOTROS
-          </button>
+        <h1>Los valores que nos distinguen como organización</h1>
+        <button class="valores-button" routerLink="/empresa" routerLinkActive="active-link">
+          MÁS SOBRE NOSOTROS
+        </button>
       </div>
       <div class="valores-right">
-          <div class="valores-item">
-              <strong>Respeto:</strong>
-              <p>Valoramos a nuestros colaboradores y clientes, fomentando un ambiente de confianza y comprensión.</p>
-          </div>
-          <div class="valores-item">
-              <strong>Resiliencia:</strong>
-              <p>Nos adaptamos a los cambios y desafíos del mercado, manteniendo nuestra firmeza y compromiso.</p>
-          </div>
-          <div class="valores-item">
-              <strong>Constancia:</strong>
-              <p>Trabajamos de manera continua y dedicada para alcanzar la excelencia en cada proyecto.</p>
-          </div>
-          <div class="valores-item">
-              <strong>Excelencia:</strong>
-              <p>Buscamos siempre la calidad en nuestros productos y servicios, superando las expectativas de nuestros clientes.</p>
-          </div>
+        <div class="valores-item">
+          <strong>Respeto:</strong>
+          <p>Valoramos a nuestros colaboradores y clientes, fomentando un ambiente de confianza y comprensión.</p>
+        </div>
+        <div class="valores-item">
+          <strong>Resiliencia:</strong>
+          <p>Nos adaptamos a los cambios y desafíos del mercado, manteniendo nuestra firmeza y compromiso.</p>
+        </div>
+        <div class="valores-item">
+          <strong>Constancia:</strong>
+          <p>Trabajamos de manera continua y dedicada para alcanzar la excelencia en cada proyecto.</p>
+        </div>
+        <div class="valores-item">
+          <strong>Excelencia:</strong>
+          <p>Buscamos siempre la calidad en nuestros productos y servicios, superando las expectativas de nuestros
+            clientes.</p>
+        </div>
       </div>
+    </div>
   </div>
-</div>
 
-
-
-    <!-- ///////////////////SERVICIOS//////////////////////// -->
-    <div class="servicios">
+  <!-- ///////////////////SERVICIOS//////////////////////// -->
+  <!-- <div class="servicios">
         <div class="text-center p-4">
             <h3>
                 <strong>
@@ -86,8 +97,26 @@
                 <button class="button-next" (click)="nextService()">Siguiente</button>
             </div>
         </div>
-    </div>
-
+    </div> -->
+</div>
+<!-- ///////////////////UBICACIÓN//////////////////////// -->
+<div class="mapa-container">
+  <div class="text-center p-4">
+    <h3>
+      <strong>
+        <span style="color: rgb(13, 65, 111)">
+          <b>¿DÓNDE NOS UBICAMOS?</b>
+        </span>
+      </strong>
+    </h3>
+  </div>
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7723174191096!2d-79.16735102588278!3d-0.27514029972215515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d547fa334b0769%3A0xdc2d3d57a3ada4e7!2sHTC%20Un%20Mundo%20El%C3%A9ctrico!5e0!3m2!1ses!2sec!4v1728051314145!5m2!1ses!2sec"
+    width="100%" height="10%" style="border:0;" allowfullscreen="" loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+<div>
 
 </div>
 <!-- ////////////FORMULARIO DE COTIZACION////////////// -->
