@@ -1,11 +1,8 @@
 <app-carrosul></app-carrosul>
-<div class="container">
-
-  
-
+<div class="container"  data-aos="fade-up">
 
   <!-- /////////////////TARJETAS DE SERVICIOS/////////////////////// -->
-  <div>
+  <div data-aos="fade-down">
     <h3 class="text-center" style="color: rgb(13, 65, 111); margin-top: 30px">
       <strong>
         <b>NUESTROS SERVICIOS</b>
@@ -13,7 +10,7 @@
     </h3>
   </div>
 
-  <div class="card-grid">
+  <div class="card-grid" data-aos="fade-up">
     <div class="card mt-5" *ngFor="let servicio of servicios">
       <div class="image-box">
         <img [src]="servicio.image" [alt]="servicio.name">
