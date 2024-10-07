@@ -159,6 +159,10 @@ svg {
   bottom: 20px;
   left:20px;
   z-index: 1000;
+  transition: transform 0.3s ease;
+}
+#whatsapp:hover {
+  transform: scale(1.2);
 }
 circle{
   fill: #25d366;
