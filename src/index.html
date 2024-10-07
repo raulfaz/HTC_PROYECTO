@@ -14,9 +14,11 @@
   <app-root></app-root>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({
-      duration: 1000, // Duración de la animación en milisegundos
-      once: true // La animación solo ocurre una vez al hacer scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      AOS.init({
+        duration: 1000, // Ajusta la duración de las animaciones
+        once: true      // Asegura que las animaciones se ejecuten solo una vez
+      });
     });
   </script>
 </body>

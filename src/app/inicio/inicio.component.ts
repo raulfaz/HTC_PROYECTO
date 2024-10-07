@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { CarrosulComponent } from '../carrosul/carrosul.component';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { SERVICIOS } from '../datos/servicios';
 import { CommonModule } from '@angular/common';
 import { FormCotizacionComponent } from '../form-cotizacion/form-cotizacion.component';
 import { MatCardModule } from '@angular/material/card';
+
+// Declaramos AOS como una variable global
+declare var AOS: any;
 
 @Component({
   selector: 'app-inicio',
@@ -13,7 +16,16 @@ import { MatCardModule } from '@angular/material/card';
   templateUrl: './inicio.component.html',
   styleUrl: './inicio.component.css'
 })
-export class InicioComponent {
+export class InicioComponent implements AfterViewInit{
+  constructor() {}
+
+  ngAfterViewInit(): void {
+    AOS.init({
+      duration: 1000, 
+      once: true
+    });
+  }
+
   imagenUno: string = '../../assets/img-carrosul/uno.jpg';
   imagenDos: string = '../../assets/img-carrosul/dos.jpg';
   imagenTres: string ='../../assets/img-carrosul/tres.jpg';
