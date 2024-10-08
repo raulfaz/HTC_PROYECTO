@@ -31,8 +31,8 @@ export class ProductosComponent {
     // Puedes agregar más catálogos aquí
   ];
 
-   // Método para abrir el catálogo en PDF
-   openCatalog(pdf: string) {
+  // Método para abrir el catálogo en PDF
+  openCatalog(pdf: string) {
     window.open(`/../assets/catalogs/${pdf}`, '_blank');
   }
 
@@ -54,10 +54,20 @@ export class ProductosComponent {
     }
   }
 
-  // Método para buscar servicios
-  buscarServicios() {
-    this.serviciosFiltrados = this.servicios.filter(servicio =>
-      servicio.name.toLowerCase().includes(this.busqueda.toLowerCase())
-    );
+  // Método para buscar productos
+  buscarProductos() {
+    const busquedaNormalizada = this.busqueda
+      .toLowerCase()
+      .normalize('NFD') // Normaliza la cadena
+      .replace(/[\u0300-\u036f]/g, ''); // Elimina las tildes
+
+    this.serviciosFiltrados = this.servicios.filter(servicio => {
+      const servicioNombreNormalizado = servicio.name
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, ''); // Normaliza el nombre del servicio
+      return servicioNombreNormalizado.includes(busquedaNormalizada);
+    });
   }
+
 }
