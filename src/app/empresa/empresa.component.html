@@ -1,6 +1,6 @@
 <div class="hero-section">
   <div class="hero-content" data-aos="fade-down">
-    <h1 style="font-size: 65px;" >TU MEJOR OPCIÓN</h1>
+    <h1 style="font-size: 65px;">TU MEJOR OPCIÓN</h1>
     <p style="font-size: 15px;">Transforma tus servicios y proyectos eléctricos con HTC. <br>
       <strong style="font-size: 15px;">"Donde la calidad y la confianza se iluminan".</strong>
     </p>
@@ -25,9 +25,8 @@
 <!-- Sección Modificada: Imagen y Descripción de la Empresa -->
 <div class="container-form p-5 company-section">
   <div class="row">
-    <div class="col-md-6 company-image">
-      <img src="\..\assets\img-generales\edificio.jpg" alt="Empresa" class="img-fluid rounded" data-aos="flip-left"
-        data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+    <div class="col-md-6 company-image" data-aos="flip-left" data-aos-easing="ease-out-cubic">
+      <img src="\..\assets\img-generales\edificio.jpg" alt="Empresa" class="img-fluid rounded">
     </div>
     <div class="col-md-6 company-info d-flex justify-content-center align-items-center">
       <div class="company-text">
@@ -87,7 +86,8 @@
       <div class="container">
         <div class="row mt-4 mb-4">
           <div class="col-12 col-md-4 mb-2">
-            <img src="\..\assets\img-servicios\lorena2.jpg" alt="Proyecto Iluminación de Vías" width="100%" data-aos="flip-left">
+            <img src="\..\assets\img-servicios\lorena2.jpg" alt="Proyecto Iluminación de Vías" width="100%"
+              data-aos="flip-left">
           </div>
           <div class="col-12 col-md-8">
             <span>
@@ -107,7 +107,8 @@
       <div class="container">
         <div class="row mt-4 mb-4">
           <div class="col-12 col-md-4 mb-2">
-            <img src="\..\assets\img-servicios\panel.jpg" alt="Proyecto de Paneles Solares" width="100%" data-aos="flip-left">
+            <img src="\..\assets\img-servicios\panel.jpg" alt="Proyecto de Paneles Solares" width="100%"
+              data-aos="flip-left">
           </div>
           <div class="col-12 col-md-8">
             <span>
@@ -243,7 +244,7 @@
   </div>
 
   <mat-stepper [linear]="isLinear" #stepper class="timeline-stepper"
-    [orientation]="isMobile ? 'vertical' : 'horizontal'">
+    [orientation]="isMobile ? 'vertical' : 'horizontal'" data-aos="zoom-out-up">
     <mat-step *ngFor="let item of timelineData; let i = index">
       <ng-template matStepLabel>{{ item.year }}</ng-template>
 

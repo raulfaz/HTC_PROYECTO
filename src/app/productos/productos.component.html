@@ -1,1 +1,73 @@
-<p>productos works!</p>
+<div class="hero-section">
+  <div class="hero-content" data-aos="fade-down">
+    <h1 style="font-size: 65px;">CALIDAD EN CADA PRODUCTO</h1>
+    <p style="font-size: 18px;">
+      Explora una amplia gama de productos eléctricos que transformarán tus proyectos. <br>
+      <strong style="font-size: 18px;">"Comprometidos con la Excelencia".</strong>
+    </p>
+    <!-- <button mat-raised-button color="accent" (click)="navigateToCatalogs()">VER CATALOGOS</button> -->
+  </div>
+</div>
+
+<div class="container">
+  <!-- Sección de Catálogos (Carrusel Horizontal) -->
+  <div class="row mb-4">
+    <div>
+      <h3 class="text-center p-4" style="color: rgb(13, 65, 111)" data-aos="zoom-in">
+        <strong>
+          <b>CATÁLOGOS</b>
+        </strong>
+      </h3>
+    </div>
+    <div class="col-12">
+      <div class="catalog-carousel">
+        <button class="catalog-arrow left" (click)="prevCatalog()">
+          <mat-icon>chevron_left</mat-icon> <!-- MatIcon usage -->
+        </button>
+
+        <div class="catalog-wrapper">
+          <div class="catalog-line"></div>
+          <div class="catalog-items" [style.transform]="'translateX(' + currentPosition + 'px)'">
+            <div class="catalog-item" *ngFor="let catalog of catalogData">
+              <img [src]="catalog.image" class="d-block w-100" alt="{{ catalog.name }}"
+                (click)="openCatalog(catalog.pdf)">
+            </div>
+          </div>
+        </div>
+
+        <button class="catalog-arrow right" (click)="nextCatalog()">
+          <mat-icon>chevron_right</mat-icon> <!-- MatIcon usage -->
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sección de Búsqueda -->
+  <div class="row mb-4">
+    <div class="col-4">
+      <div class="card">
+        <!-- categorias de los productos-->
+
+      </div>
+    </div>
+    <div class="col-8">
+      <h4>Buscar Servicios</h4>
+      <input type="text" class="form-control mb-3" [(ngModel)]="busqueda" placeholder="Buscar servicios..."
+        (input)="buscarServicios()">
+    </div>
+  </div>
+
+  <!-- Sección de Servicios -->
+  <div class="row">
+    <div class="col-md-4" *ngFor="let servicio of serviciosFiltrados">
+      <div class="card mb-3">
+        <img [src]="servicio.image" class="card-img-top" alt="{{ servicio.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ servicio.name }}</h5>
+          <p class="card-text">{{ servicio.description }}</p>
+          <a href="#" class="btn btn-primary">Ver más</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
