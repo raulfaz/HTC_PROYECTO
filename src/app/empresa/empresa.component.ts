@@ -20,9 +20,6 @@ export class EmpresaComponent {
 
   servicios = SERVICIOS
 
-  currentPosition = 0;
-  itemWidth = 400; // Nuevo ancho ajustado de la tarjeta
-
   isLinear = false;
   isMobile = false;
 
@@ -58,32 +55,7 @@ export class EmpresaComponent {
       description: 'Conscientes de nuestra responsabilidad social, implementamos prácticas sostenibles en nuestros proyectos. Esta iniciativa no solo responde a un compromiso ético con el medio ambiente, sino que también nos posiciona como un referente en el sector eléctrico, destacando por la calidad y sostenibilidad de nuestras soluciones.'
     }
   ];
-
-
-
-  constructor(private breakpointObserver: BreakpointObserver) {
-    this.breakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
-      this.isMobile = result.matches;
-    });
-  }
-
-  // Al hacer clic en el botón izquierdo
-  prevSlide() {
-    if (this.currentPosition === 0) {
-      this.currentPosition = -(this.itemWidth * (this.timelineData.length - 1)); // Vuelve al último
-    } else {
-      this.currentPosition += this.itemWidth;
-    }
-  }
-
-  // Al hacer clic en el botón derecho
-  nextSlide() {
-    if (this.currentPosition <= -(this.itemWidth * (this.timelineData.length - 1))) {
-      this.currentPosition = 0; // Vuelve al primero
-    } else {
-      this.currentPosition -= this.itemWidth;
-    }
-  }
+  
 
 
 
@@ -127,21 +99,6 @@ export class EmpresaComponent {
       description: 'Nos mantenemos actualizados con las últimas tecnologías, implementando soluciones innovadoras y eficientes para mejorar la capacidad de tu sistema eléctrico.'
     }
   ];
-
-
-  activeIndex = 0;
-
-  nextService() {
-    this.activeIndex = (this.activeIndex + 1) % this.servicios.length;
-  }
-
-  prevService() {
-    this.activeIndex = (this.activeIndex - 1 + this.servicios.length) % this.servicios.length;
-  }
-
-
-
-
 
 
 }
