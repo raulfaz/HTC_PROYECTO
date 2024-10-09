@@ -105,7 +105,7 @@ img:hover {
 .empty-section {
   height: 150px; /* Ajusta la altura según sea necesario */
   background-color: #ffffff; /* Color de fondo opcional para diferenciar la sección */
-  margin: 50px 0; /* Espacio vertical superior e inferior */
+  margin: 50px 0;
 }
 
 /* Grid for Service Cards ------------------------------------------------*/
