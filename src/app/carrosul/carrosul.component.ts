@@ -11,11 +11,11 @@ import { FormsModule } from '@angular/forms';
 })
 export class CarrosulComponent {
 
-  // imagenUno: string = '../../assets/img-carrosul/uno.jpg';
+  //imagenUno: string = '../../assets/img-carrosul/uno.jpg';
   // imagenDos: string = '../../assets/img-carrosul/dos.jpg';
   // imagenTres: string ='../../assets/img-carrosul/tres.jpg';
 
-  imagenUno: string = '../../assets/img-carrosul/uno-new.png';
-  imagenDos: string = '../../assets/img-carrosul/dos-new.png';
-  imagenTres: string ='../../assets/img-carrosul/tres-new.png';
+ imagenUno: string = '../../assets/img-carrosul/uno-new.svg';
+  imagenDos: string = '../../assets/img-carrosul/dos-new.svg';
+  imagenTres: string ='../../assets/img-carrosul/tres-new.svg';
 }
