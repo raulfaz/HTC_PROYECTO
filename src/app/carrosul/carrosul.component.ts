@@ -11,10 +11,6 @@ import { FormsModule } from '@angular/forms';
 })
 export class CarrosulComponent {
 
-  //imagenUno: string = '../../assets/img-carrosul/uno.jpg';
-  // imagenDos: string = '../../assets/img-carrosul/dos.jpg';
-  // imagenTres: string ='../../assets/img-carrosul/tres.jpg';
-
  imagenUno: string = '../../assets/img-carrosul/uno-new.jpeg';
   imagenDos: string = '../../assets/img-carrosul/dos-new.jpeg';
   imagenTres: string ='../../assets/img-carrosul/tres-new.jpeg';
