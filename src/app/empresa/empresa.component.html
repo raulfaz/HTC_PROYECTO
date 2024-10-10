@@ -227,36 +227,35 @@
 
 
 <!-- Línea de tiempo: NUESTRA HISTORIA -->
-
-  <div class="timeline-container" style="background-color: #EDF1F3; padding: 20px;"  >
-    <div class="text-center p-4">
-      <h3 style="color: rgb(13, 65, 111); margin-bottom: 15px;" data-aos="zoom-in">
-        <strong>
-          <b>NUESTRA HISTORIA</b>
-        </strong>
-      </h3>
-    </div>
-
-    <mat-stepper [linear]="isLinear" #stepper class="timeline-stepper"
-      [orientation]="isMobile ? 'vertical' : 'horizontal'" >
-      <mat-step *ngFor="let item of timelineData; let i = index" >
-        <ng-template matStepLabel>{{ item.year }}</ng-template>
-
-        <!-- Contenido de la línea de tiempo -->
-        <div class="timeline-content" >
-          <mat-icon>{{ item.icon }}</mat-icon> <!-- Aquí se coloca el ícono correspondiente -->
-          <h3 style="color: rgb(13, 65, 111); margin-bottom: 10px;">{{ item.title }}</h3>
-          <p>{{ item.description }}</p>
-        </div>
-
-        <!-- Botones de navegación -->
-        <div class="timeline-buttons">
-          <button mat-button matStepperPrevious *ngIf="i > 0">Anterior</button>
-          <button mat-button matStepperNext *ngIf="i < timelineData.length - 1">Siguiente</button>
-          <button mat-button color="primary" (click)="stepper.reset()"
-            *ngIf="i === timelineData.length - 1">Reiniciar</button>
-        </div>
-      </mat-step>
-    </mat-stepper>
+<div class="timeline-container" style="background-color: #EDF1F3; padding: 20px;">
+  <div class="text-center p-4">
+    <h3 style="color: rgb(13, 65, 111); margin-bottom: 15px;" data-aos="zoom-in">
+      <strong>
+        <b>NUESTRA HISTORIA</b>
+      </strong>
+    </h3>
   </div>
+
+  <mat-stepper [linear]="isLinear" #stepper class="timeline-stepper"
+    [orientation]="isMobile ? 'vertical' : 'horizontal'">
+    <mat-step *ngFor="let item of timelineData; let i = index">
+      <ng-template matStepLabel>{{ item.year }}</ng-template>
+
+      <!-- Contenido de la línea de tiempo -->
+      <div class="timeline-content">
+        <mat-icon>{{ item.icon }}</mat-icon> <!-- Aquí se coloca el ícono correspondiente -->
+        <h3 style="color: rgb(13, 65, 111); margin-bottom: 10px;">{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+      </div>
+
+      <!-- Botones de navegación -->
+      <div class="timeline-buttons">
+        <button mat-button matStepperPrevious *ngIf="i > 0">Anterior</button>
+        <button mat-button matStepperNext *ngIf="i < timelineData.length - 1">Siguiente</button>
+        <button mat-button color="primary" (click)="stepper.reset()" *ngIf="i === timelineData.length - 1">Reiniciar</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</div>
+
 

@@ -55,9 +55,14 @@ export class EmpresaComponent {
       description: 'Conscientes de nuestra responsabilidad social, implementamos prácticas sostenibles en nuestros proyectos. Esta iniciativa no solo responde a un compromiso ético con el medio ambiente, sino que también nos posiciona como un referente en el sector eléctrico, destacando por la calidad y sostenibilidad de nuestras soluciones.'
     }
   ];
-  
 
 
+  constructor(private breakpointObserver: BreakpointObserver) {
+    // Detectar si el dispositivo es pequeño para cambiar la orientación
+    this.breakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
+      this.isMobile = result.matches;
+    });
+  }
 
   // cards con las áreas y explicaciones para SOPORTE TÉCNICO
   cards = [

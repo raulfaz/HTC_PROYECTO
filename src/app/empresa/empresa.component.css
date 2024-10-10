@@ -313,22 +313,11 @@ img:hover {
 
 
 
-/* Linea de tiempo 2 ----------------------------------- */
-.mat-stepper-horizontal {
-  margin-top: 8px;
-}
-
-.mat-step-header {
-  text-align: center;
-  margin-bottom: 16px;
-}
-
-p {
-  font-size: 14px;
-}
-
+/* Linea de tiempo ----------------------------------- */
 .timeline-container {
-  max-width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 10px;
   padding: 30px;
   background-color: #EDF1F3;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -357,48 +346,13 @@ p {
     font-size: 1.2rem;
   }
 
+  /* Hacer que el stepper sea vertical en pantallas pequeñas */
   .timeline-stepper {
     flex-direction: column;
   }
 }
 
 
-
-/* Responsividad para dispositivos móviles */
-@media (max-width: 768px) {
-  .timeline-wrapper {
-    width: 100%;
-  }
-
-  .timeline-item {
-    width: 80%; /* Reduce el tamaño de las tarjetas en pantallas pequeñas */
-    margin: 20px auto;
-  }
-
-  .timeline-arrow {
-    width: 40px;
-    height: 40px;
-    font-size: 1.5em;
-  }
-
-  .timeline-line {
-    bottom: -20px; /* Ajusta la posición de la línea en pantallas pequeñas */
-    left: 5%;
-    width: 90%;
-  }
-
-  h2 {
-    font-size: 2em;
-  }
-
-  .timeline-date {
-    font-size: 1.3em;
-  }
-
-  .timeline-description {
-    font-size: 1em;
-  }
-}
 
 
 
