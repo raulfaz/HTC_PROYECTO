@@ -143,43 +143,40 @@
 
 /* ////// Estilos Responsivos de las tarjetas ------------------- ////// */
 
-/* Para pantallas medianas (tablets, max-width: 768px) */
-@media (max-width: 900px) {
-  .card {
-    width: 180px;
-    height: 110px;
-  }
+/* Para pantallas medianas (tablets, max-width: 980px) */
+@media (max-width: 980px) {
   .card-grid {
     grid-template-columns: repeat(4, 1fr); /* 4 columnas en tablets */
-    gap: 5px 10px;
   }
 }
 
 /* Para pantallas pequeñas (smartphones grandes, max-width: 576px) */
 @media (max-width: 576px) {
-  .card {
-    width: 160px;
-    height: 100px;
-  }
   .card-grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas en smartphones grandes */
-    gap: 8px;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en smartphones grandes */
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .card {
+    width: 260px; /* Ajustar ancho de la tarjeta */
+    height: 180px; /* Ajustar alto de la tarjeta */
   }
 }
 
-/* Para pantallas muy pequeñas (max-width: 360px) */
-@media (max-width: 400px) {
-  .card {
-    width: 270px;
-    height: 170px;
-  }
+/* Para pantallas muy pequeñas (max-width: 430px) */
+@media (max-width: 430px) {
   .card-grid {
     grid-template-columns: repeat(1, 1fr); /* 1 columna en pantallas muy pequeñas */
-    gap: 5px;
+    justify-content: center;
+    gap: 10px;
+  }
 
+  .card {
+    width: 100%; /* Tarjetas ocuparán el ancho total */
+    height: 180px; /* Ajustar altura */
   }
 }
-
 
 
 
