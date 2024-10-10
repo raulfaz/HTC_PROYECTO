@@ -5,14 +5,23 @@
 
   <span class="spacer"></span>
 
-  <ul class="nav-links">
-    <li><a routerLink="/inicio" routerLinkActive="active-link">Inicio</a></li>
-    <li><a routerLink="/empresa" routerLinkActive="active-link">Empresa</a></li>
-    <li><a routerLink="/productos" routerLinkActive="active-link">Productos</a></li>
-    <li><a routerLink="/cotizacion" routerLinkActive="active-link">Cotización</a></li>
+  <!-- Botón del menú hamburguesa para pantallas pequeñas -->
+  <button mat-icon-button class="hamburger-button" (click)="toggleMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>
 
+  <!-- Links de navegación, se ocultan en pantallas pequeñas -->
+  <ul class="nav-links" [ngClass]="{'open': isMenuOpen}">
+    <li><a routerLink="/inicio" routerLinkActive="active-link" (click)="toggleMenu()">Inicio</a></li>
+    <li><a routerLink="/empresa" routerLinkActive="active-link" (click)="toggleMenu()">Empresa</a></li>
+    <li><a routerLink="/productos" routerLinkActive="active-link" (click)="toggleMenu()">Productos</a></li>
+    <li><a routerLink="/cotizacion" routerLinkActive="active-link" (click)="toggleMenu()">Cotización</a></li>
   </ul>
 </mat-toolbar>
+
+
+
+
 <router-outlet></router-outlet>
 <div id="whatsapp">
   <a href="https://api.whatsapp.com/send?phone=5930997382937&text=Hola%20,Quiero%20asesoramiento." target="_blank">
