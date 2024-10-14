@@ -1,13 +1,16 @@
 import { Routes } from '@angular/router';
-import { InicioComponent } from './inicio/inicio.component';
-import { EmpresaComponent } from './empresa/empresa.component';
-import { ProductosComponent } from './productos/productos.component';
-import { CotizacionComponent } from './cotizacion/cotizacion.component';
 
 export const routes: Routes = [
-    {path: '', redirectTo: 'inicio', pathMatch: 'full'},
-    {path: 'inicio', component:InicioComponent},
-    {path: 'empresa', component:EmpresaComponent},
-    {path: 'productos', component:ProductosComponent},
-    {path: 'cotizacion', component:CotizacionComponent}
+    {
+        path: '',
+        loadChildren: () => import('./public/public.routes').then(m => m.publico), // Rutas públicas
+    },
+    {
+        path: 'public',
+        loadChildren: () => import('./public/public.routes').then(m => m.publico)
+    },
+    {
+        path: 'admin',
+        loadChildren: () => import('./admin/admin.routes').then(m => m.admin)
+    }
 ];

@@ -1,0 +1,22 @@
+/* ////icono de whatsapp//// */
+svg {
+    width: 80px;
+    filter: drop-shadow(0 1px 4px rgba(0,0,0,.4));
+  }
+  #whatsapp {
+    position: fixed;
+    bottom: 20px;
+    left:20px;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+  }
+  #whatsapp:hover {
+    transform: scale(1.1);
+  }
+  circle{
+    fill: #25d366;
+  }
+  path {
+    fill: #fff;
+  }
+  

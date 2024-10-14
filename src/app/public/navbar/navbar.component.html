@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<mat-toolbar color="primary" class="navbar" style="padding: 0 20px;">
+  <img src="assets/img-generales/logo-eslogan.png" alt="My App Logo" class="logo">
+  <strong><span class="title d-none d-md-block">Un Mundo Eléctrico</span></strong>
+
+  <span class="spacer"></span>
+
+  <!-- Botón del menú hamburguesa para pantallas pequeñas -->
+  <button mat-icon-button class="hamburger-button" (click)="toggleMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <!-- Links de navegación, se ocultan en pantallas pequeñas -->
+  <ul class="nav-links" [ngClass]="{'open': isMenuOpen}">
+    <li><a routerLink="/inicio" routerLinkActive="active-link" (click)="toggleMenu()">Inicio</a></li>
+    <li><a routerLink="/empresa" routerLinkActive="active-link" (click)="toggleMenu()">Empresa</a></li>
+    <li><a routerLink="/productos" routerLinkActive="active-link" (click)="toggleMenu()">Productos</a></li>
+    <li><a routerLink="/cotizacion" routerLinkActive="active-link" (click)="toggleMenu()">Cotización</a></li>
+  </ul>
+</mat-toolbar>
