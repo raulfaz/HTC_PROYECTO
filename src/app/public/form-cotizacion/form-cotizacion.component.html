@@ -7,53 +7,53 @@
       <h1 class="text-center">Cotiza con nosotros</h1>
       <h6 class="text-center">Estamos comprometidos a brindar un servicio excelente</h6>
 
-      <form (ngSubmit)="onSubmit()">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <!-- Campo Nombre -->
         <div class="mb-3">
           <label for="nombre" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="nombre" [(ngModel)]="nombre" name="nombre" required pattern="[A-Za-z\s]+"
-                 [ngClass]="{'is-invalid': nombreField.invalid && (nombreField.dirty || nombreField.touched), 'is-valid': nombreField.valid}" #nombreField="ngModel">
-          <div *ngIf="nombreField.invalid && (nombreField.dirty || nombreField.touched)" class="invalid-feedback">
-            <div *ngIf="nombreField.errors?.['required']">El campo es requerido.</div>
-            <div *ngIf="nombreField.errors?.['pattern']">Solo se permiten letras.</div>
+          <input type="text" class="form-control" id="nombre" formControlName="nombre" required
+                 [ngClass]="{'is-invalid': form.get('nombre')?.invalid && (form.get('nombre')?.touched), 'is-valid': form.get('nombre')?.valid}">
+          <div *ngIf="form.get('nombre')?.invalid && (form.get('nombre')?.touched)" class="invalid-feedback">
+            <div *ngIf="form.get('nombre')?.errors?.['required']">El campo es requerido.</div>
+            <div *ngIf="form.get('nombre')?.errors?.['pattern']">Solo se permiten letras.</div>
           </div>
         </div>
 
         <!-- Campo Email -->
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email" required email
-                 [ngClass]="{'is-invalid': emailField.invalid && (emailField.dirty || emailField.touched), 'is-valid': emailField.valid}" #emailField="ngModel">
-          <div *ngIf="emailField.invalid && (emailField.dirty || emailField.touched)" class="invalid-feedback">
-            <div *ngIf="emailField.errors?.['required']">El campo es requerido.</div>
-            <div *ngIf="emailField.errors?.['email']">El formato debe ser tipo correo electrónico.</div>
+          <input type="email" class="form-control" id="email" formControlName="email" required
+                 [ngClass]="{'is-invalid': form.get('email')?.invalid && (form.get('email')?.touched), 'is-valid': form.get('email')?.valid}">
+          <div *ngIf="form.get('email')?.invalid && (form.get('email')?.touched)" class="invalid-feedback">
+            <div *ngIf="form.get('email')?.errors?.['required']">El campo es requerido.</div>
+            <div *ngIf="form.get('email')?.errors?.['email']">El formato debe ser tipo correo electrónico.</div>
           </div>
         </div>
 
         <!-- Campo Teléfono -->
         <div class="mb-3">
           <label for="telefono" class="form-label">Número de Teléfono</label>
-          <input type="tel" class="form-control" id="telefono" [(ngModel)]="telefono" name="telefono" required pattern="[0-9]{10}"
-                 [ngClass]="{'is-invalid': telefonoField.invalid && (telefonoField.dirty || telefonoField.touched), 'is-valid': telefonoField.valid}" #telefonoField="ngModel">
-          <div *ngIf="telefonoField.invalid && (telefonoField.dirty || telefonoField.touched)" class="invalid-feedback">
-            <div *ngIf="telefonoField.errors?.['required']">El campo es requerido.</div>
-            <div *ngIf="telefonoField.errors?.['pattern']">Solo se permiten 10 dígitos numéricos.</div>
+          <input type="tel" class="form-control" id="telefono" formControlName="telefono" required
+                 [ngClass]="{'is-invalid': form.get('telefono')?.invalid && (form.get('telefono')?.touched), 'is-valid': form.get('telefono')?.valid}">
+          <div *ngIf="form.get('telefono')?.invalid && (form.get('telefono')?.touched)" class="invalid-feedback">
+            <div *ngIf="form.get('telefono')?.errors?.['required']">El campo es requerido.</div>
+            <div *ngIf="form.get('telefono')?.errors?.['pattern']">Solo se permiten 10 dígitos numéricos.</div>
           </div>
         </div>
 
         <!-- Campo Mensaje -->
         <div class="mb-3">
           <label for="mensaje" class="form-label">Mensaje</label>
-          <textarea class="form-control" id="mensaje" [(ngModel)]="mensaje" name="mensaje" rows="3" required
-                    [ngClass]="{'is-invalid': mensajeField.invalid && (mensajeField.dirty || mensajeField.touched), 'is-valid': mensajeField.valid}" #mensajeField="ngModel"></textarea>
-          <div *ngIf="mensajeField.invalid && (mensajeField.dirty || mensajeField.touched)" class="invalid-feedback">
-            <div *ngIf="mensajeField.errors?.['required']">El campo es requerido.</div>
+          <textarea class="form-control" id="mensaje" formControlName="mensaje" rows="3" required
+                    [ngClass]="{'is-invalid': form.get('mensaje')?.invalid && (form.get('mensaje')?.touched), 'is-valid': form.get('mensaje')?.valid}"></textarea>
+          <div *ngIf="form.get('mensaje')?.invalid && (form.get('mensaje')?.touched)" class="invalid-feedback">
+            <div *ngIf="form.get('mensaje')?.errors?.['required']">El campo es requerido.</div>
           </div>
         </div>
 
         <!-- Botón Enviar -->
         <div class="hero-content">
-          <button type="submit" [disabled]="!nombreField.valid || !emailField.valid || !telefonoField.valid || !mensajeField.valid">Enviar</button>
+          <button type="submit" [disabled]="form.invalid">Enviar</button>
         </div>
       </form>
     </div>
