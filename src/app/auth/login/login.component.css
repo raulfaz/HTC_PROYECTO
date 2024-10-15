@@ -1,0 +1,82 @@
+/* Contenedor principal para centrar todo */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Centrado vertical */
+  background-color: #041c41; /* Fondo oscuro */
+}
+
+/* Estilos de la tarjeta */
+.card {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra pronunciada */
+  border-radius: 12px; /* Bordes redondeados */
+  background-color: #ffffff; /* Fondo blanco */
+  padding: 20px; /* Espacio interno */
+  transition: box-shadow 0.3s ease-in-out; /* Transición suave en hover */
+}
+
+.card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4); /* Más sombra al pasar el mouse */
+}
+
+/* Estilo del encabezado de la tarjeta */
+.card-header {
+  background-color: #0F416F; /* Azul medio */
+  color: white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 12px 12px 0 0; /* Redondeo solo en la parte superior */
+}
+
+.card-header h3 {
+  font-size: 1.8rem;
+  margin-top: 15px; /* Espacio entre el logo y el texto */
+}
+
+/* Logo circular con fondo blanco */
+.logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; /* Hace que la imagen sea circular */
+  background-color: white; /* Fondo blanco dentro del círculo */
+  padding: 10px; /* Espacio dentro del círculo */
+  object-fit: contain; /* Ajuste de la imagen dentro del círculo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave alrededor del logo */
+}
+
+/* Estilos de los inputs */
+.form-control {
+  border-radius: 8px; /* Bordes redondeados */
+  border: 2px solid #005db9; /* Color del borde */
+  padding: 12px;
+  font-size: 1rem;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 6px rgba(0, 93, 185, 0.5); /* Sombra en focus */
+  border-color: #0F416F; /* Color más fuerte en focus */
+}
+
+/* Botón centrado */
+.btn-custom {
+  background-color: #005db9; /* Azul para el botón */
+  border-color: #005db9;
+  color: white;
+  padding: 10px 30px;
+  font-size: 1.2rem;
+  border-radius: 25px; /* Botón redondeado */
+  transition: background-color 0.3s ease; /* Transición suave */
+  margin-top: 15px;
+  width: 100%; /* Ancho completo para centrar */
+}
+
+.btn-custom:hover {
+  background-color: #0F416F; /* Color de hover */
+  border-color: #0F416F;
+}
+
+/* Separar campos de formulario */
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
