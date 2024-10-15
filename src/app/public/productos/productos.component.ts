@@ -19,8 +19,6 @@ export class ProductosComponent {
   serviciosFiltrados = [...this.servicios];
   busqueda: string = '';
 
-
-
   currentPosition = 0;
   itemWidth = 200; // Ancho de cada catálogo (ajustar según necesidad)
 
@@ -69,5 +67,26 @@ export class ProductosComponent {
       return servicioNombreNormalizado.includes(busquedaNormalizada);
     });
   }
+
+  categorias: string[] = [
+    'Electrodomésticos',
+    'Iluminación',
+    'Herramientas',
+    'Cables y Conectores',
+    'Seguridad',
+    'Control de Temperatura',
+    'Sistemas de Energía',
+    'Accesorios',
+    'Componentes Electrónicos',
+    'Mantenimiento'
+  ];
+
+  // Filtra los servicios según la categoría seleccionada
+  filtrarPorCategoria(categoria: string) {
+    // Implementa la lógica para filtrar servicios
+    console.log(`Filtrando por la categoría: ${categoria}`);
+    // Ejemplo: this.serviciosFiltrados = this.servicios.filter(servicio => servicio.categoria === categoria);
+  }
+
 
 }
