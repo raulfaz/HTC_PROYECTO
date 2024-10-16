@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CatalogService } from '../../admin/services/catalogos.service'; // Asegúrate de que la ruta sea correcta
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-catalog-carousel',
