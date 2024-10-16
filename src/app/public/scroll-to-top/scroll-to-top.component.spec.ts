@@ -11,7 +11,7 @@ describe('ScrollToTopComponent', () => {
       imports: [ScrollToTopComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(ScrollToTopComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
