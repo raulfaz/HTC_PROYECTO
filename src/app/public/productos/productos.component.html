@@ -8,8 +8,8 @@
   </div>
 </div>
 
+<!-- Sección de Productos -->
 <div class="container">
-  <!-- Sección de Búsqueda con Categorías -->
   <div class="row mb-4">
     <div>
       <h3 class="text-center p-4" style="color: rgb(13, 65, 111)" data-aos="zoom-in">
@@ -19,7 +19,7 @@
       </h3>
     </div>
     <div class="col-md-4 col-lg-3">
-      <div class="card">
+      <div class="card bg-light" style="background-color: #edf1f3;">
         <div class="card-header">
           <h5>Categorías</h5>
         </div>
@@ -39,14 +39,21 @@
             <img [src]="servicio.image" class="card-img-top" alt="{{ servicio.name }}">
             <div class="card-body">
               <h5 class="card-title">{{ servicio.name }}</h5>
-              <!-- <p class="card-text">{{ servicio.description }}</p> -->
               <a href="#" class="btn btn-primary">Ver más</a>
             </div>
           </div>
         </div>
       </div>
+      <mat-paginator [length]="serviciosFiltrados.length"
+                     [pageSize]="6"
+                     [pageSizeOptions]="[6, 12, 24, 100]"
+                     aria-label="Select page"
+                     (page)="actualizarPaginador()">
+      </mat-paginator>
     </div>
   </div>
+</div>
+<div class="container">
   <!-- Sección de Catálogos (Carrusel Horizontal) -->
   <!-- <div class="row mb-4">
     <div>
