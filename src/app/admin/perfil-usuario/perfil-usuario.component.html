@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Perfil de Usuario</h1>
+  </div>
+  <form (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+    <div class="mb-3">
+      <label for="username" class="form-label">Nombre de usuario:</label>
+      <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username" required>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Nueva contraseña:</label>
+      <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password">
+    </div>
+    <div class="mb-3">
+      <label for="confirmPassword" class="form-label">Confirmar contraseña:</label>
+      <input type="password" class="form-control" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword">
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar Perfil</button>
+  </form>
