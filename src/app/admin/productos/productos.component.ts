@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
-import { ProductService } from '../product.service';
+import { ProductService } from '../services/product.service';
 import {MatTableModule} from '@angular/material/table';
 
 

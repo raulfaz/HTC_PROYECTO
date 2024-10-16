@@ -1,37 +1,52 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SERVICIOS } from '../datos/servicios';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { CatalogService } from '../../admin/services/catalogos.service'; // Asegúrate de que la ruta sea correcta
+import { Observable } from 'rxjs';
+import { CatalogCarouselComponent } from '../catalogos/catalogos.component';
 
 
 @Component({
   selector: 'app-productos',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatIconModule],
+  imports: [CommonModule, FormsModule, MatIconModule,CatalogCarouselComponent],
   templateUrl: './productos.component.html',
-  styleUrl: './productos.component.css'
+  styleUrls: ['./productos.component.css']
 })
-export class ProductosComponent {
+export class ProductosComponent implements OnInit { // Implementa OnInit
 
-  servicios = SERVICIOS
-
+  servicios = SERVICIOS;
   serviciosFiltrados = [...this.servicios];
   busqueda: string = '';
 
   currentPosition = 0;
   itemWidth = 200; // Ancho de cada catálogo (ajustar según necesidad)
 
-  catalogData = [
-    { name: 'Catálogo 1', image: '/../assets/catalogs/catalog1.jpg', pdf: 'catalog1.pdf' },
-    { name: 'Catálogo 2', image: '/../assets/catalogs/catalog2.jpeg', pdf: 'catalog2.pdf' },
-    { name: 'Catálogo 3', image: '/../assets/catalogs/catalog3.jpg', pdf: 'catalog3.pdf' }
-    // Puedes agregar más catálogos aquí
-  ];
+  catalogData: any[] = []; // Inicialmente vacío
+
+  constructor(private catalogService: CatalogService) {} // Inyección del servicio
+
+  ngOnInit(): void {
+    this.loadCatalogos(); // Cargar los catálogos al iniciar el componente
+  }
+
+  // Método para cargar los catálogos desde el servicio
+  loadCatalogos() {
+    this.catalogService.getCatalogos().subscribe(
+      (data) => {
+        this.catalogData = data; // Asigna los catálogos obtenidos a la variable catalogData
+      },
+      (error) => {
+        console.error('Error al obtener los catálogos:', error);
+      }
+    );
+  }
 
   // Método para abrir el catálogo en PDF
-  openCatalog(pdf: string) {
-    window.open(`/../assets/catalogs/${pdf}`, '_blank');
+  openCatalog(pdfUrl: string) {
+    window.open(pdfUrl, '_blank'); // Asegurarte de que el PDF se abra en una nueva pestaña
   }
 
   // Desplazamiento hacia la izquierda
@@ -83,10 +98,6 @@ export class ProductosComponent {
 
   // Filtra los servicios según la categoría seleccionada
   filtrarPorCategoria(categoria: string) {
-    // Implementa la lógica para filtrar servicios
     console.log(`Filtrando por la categoría: ${categoria}`);
-    // Ejemplo: this.serviciosFiltrados = this.servicios.filter(servicio => servicio.categoria === categoria);
   }
-
-
 }
