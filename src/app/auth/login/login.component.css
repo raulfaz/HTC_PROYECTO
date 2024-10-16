@@ -5,6 +5,8 @@
   align-items: center;
   height: 100vh; /* Centrado vertical */
   background-color: #041c41; /* Fondo oscuro */
+  padding: 20px; /* Espacio para dispositivos pequeños */
+  position: relative;
 }
 
 /* Estilos de la tarjeta */
@@ -14,6 +16,7 @@
   background-color: #ffffff; /* Fondo blanco */
   padding: 20px; /* Espacio interno */
   transition: box-shadow 0.3s ease-in-out; /* Transición suave en hover */
+  max-width: 100%; /* Asegurar que no exceda el contenedor */
 }
 
 .card:hover {
@@ -76,7 +79,47 @@
   border-color: #0F416F;
 }
 
-/* Separar campos de formulario */
-.mb-4 {
-  margin-bottom: 1.5rem;
+/* Botón de regresar en la esquina superior izquierda */
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.btn-back {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 8px 15px;
+  background-color: #005db9;
+  border-radius: 50px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.icono-regresar {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+/* Estilos de hover para el botón de regresar */
+.btn-back:hover {
+  background-color: #0F416F;
+  color: white;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .col-md-4 {
+    width: 100%; /* Asegura que ocupe todo el ancho en dispositivos móviles */
+  }
+
+  .btn-back {
+    font-size: 1rem;
+  }
+
+  .btn-custom {
+    font-size: 1rem;
+  }
 }
