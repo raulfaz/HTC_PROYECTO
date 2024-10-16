@@ -1,18 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { SERVICIOS } from '../datos/servicios';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
-
+import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { CatalogCarouselComponent } from "../catalogos/catalogos.component";
 
 @Component({
   selector: 'app-productos',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatIconModule],
+  imports: [CommonModule, FormsModule, MatIconModule, MatPaginatorModule, CatalogCarouselComponent],
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css']
 })
 export class ProductosComponent {
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   servicios = SERVICIOS;
   serviciosFiltrados = [...this.servicios];
@@ -24,13 +27,11 @@ export class ProductosComponent {
     { name: 'Catálogo 1', image: '/../assets/catalogs/catalog1.jpg', pdf: 'catalog1.pdf' },
     { name: 'Catálogo 2', image: '/../assets/catalogs/catalog2.jpeg', pdf: 'catalog2.pdf' },
     { name: 'Catálogo 3', image: '/../assets/catalogs/catalog3.jpg', pdf: 'catalog3.pdf' }
-    // Puedes agregar más catálogos aquí
   ];
 
-  // Método para abrir el catálogo en PDF
-  openCatalog(pdf: string) {
-    window.open(`/../assets/catalogs/${pdf}`, '_blank');
-  }
+  // openCatalog(pdf: string) {
+  //   window.open(/../assets/catalogs/${pdf}, '_blank');
+  // }
 
   prevCatalog() {
     if (this.currentPosition === 0) {
@@ -78,8 +79,13 @@ export class ProductosComponent {
   ];
 
   filtrarPorCategoria(categoria: string) {
-    // Implementa la lógica para filtrar servicios
-    console.log(`Filtrando por la categoría: ${categoria}`);
-    // Ejemplo: this.serviciosFiltrados = this.servicios.filter(servicio => servicio.categoria === categoria);
+    // this.serviciosFiltrados = this.servicios.filter(servicio => servicio.categoria === categoria);
+    this.paginator.pageIndex = 0; // Reinicia el paginador al primer índice
+  }
+
+  actualizarPaginador() {
+    const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
+    const endIndex = startIndex + this.paginator.pageSize;
+    this.serviciosFiltrados = this.servicios.slice(startIndex, endIndex);
   }
 }
