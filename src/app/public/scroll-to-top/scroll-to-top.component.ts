@@ -9,7 +9,6 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './scroll-to-top.component.css'
 })
 export class ScrollToTopComponent {
-
   scrollToTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
