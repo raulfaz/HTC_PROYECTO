@@ -5,11 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { CatalogCarouselComponent } from '../catalogos/catalogos.component';
 
 @Component({
   selector: 'app-productos',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatIconModule, MatPaginatorModule],
+  imports: [CommonModule, FormsModule, MatIconModule, MatPaginatorModule,CatalogCarouselComponent],
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css']
 })
@@ -28,9 +29,9 @@ export class ProductosComponent {
     { name: 'Catálogo 3', image: '/../assets/catalogs/catalog3.jpg', pdf: 'catalog3.pdf' }
   ];
 
-  openCatalog(pdf: string) {
-    window.open(`/../assets/catalogs/${pdf}`, '_blank');
-  }
+  // openCatalog(pdf: string) {
+  //   window.open(/../assets/catalogs/${pdf}, '_blank');
+  // }
 
   prevCatalog() {
     if (this.currentPosition === 0) {

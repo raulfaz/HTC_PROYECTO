@@ -54,34 +54,5 @@
   </div>
 </div>
 <div class="container">
-  <!-- Sección de Catálogos (Carrusel Horizontal) -->
-  <div class="row mb-4">
-    <div>
-      <h3 class="text-center p-4" style="color: rgb(13, 65, 111)" data-aos="zoom-in">
-        <strong>
-          <b>CATÁLOGOS</b>
-        </strong>
-      </h3>
-    </div>
-    <div class="col-12">
-      <div class="catalog-carousel">
-        <button class="catalog-arrow left" (click)="prevCatalog()">
-          <mat-icon>chevron_left</mat-icon>
-        </button>
-
-        <div class="catalog-wrapper">
-          <div class="catalog-line"></div>
-          <div class="catalog-items" [style.transform]="'translateX(' + currentPosition + 'px)'">
-            <div class="catalog-item" *ngFor="let catalog of catalogData">
-              <img [src]="catalog.image" class="d-block" alt="{{ catalog.name }}" (click)="openCatalog(catalog.pdf)">
-            </div>
-          </div>
-        </div>
-
-        <button class="catalog-arrow right" (click)="nextCatalog()">
-          <mat-icon>chevron_right</mat-icon>
-        </button>
-      </div>
-    </div>
-  </div>
+  <app-catalog-carousel></app-catalog-carousel>
 </div>

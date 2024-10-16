@@ -1,13 +1,105 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>Subir Catálogo</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <input type="file" (change)="onFileSelected($event)" accept=".pdf">
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-raised-button color="primary" (click)="uploadCatalog()" [disabled]="!selectedFile">
-      Subir Catálogo
-    </button>
-  </mat-card-actions>
-</mat-card>
+<div class="container mt-4">
+  <!-- Vista de Lista -->
+  <div *ngIf="!showForm">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2>Catálogos</h2>
+      <button mat-raised-button color="primary" (click)="toggleForm()">
+        <mat-icon>add</mat-icon>
+        Agregar Catálogo
+      </button>
+    </div>
+
+    <table mat-table [dataSource]="catalogs" class="mat-elevation-z8 w-100">
+      <!-- Columna Nombre -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let catalog"> {{catalog.name}} </td>
+      </ng-container>
+
+      <!-- Columna Imagen -->
+      <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef> Imagen </th>
+        <td mat-cell *matCellDef="let catalog">
+          <img [src]="catalog.imageUrl" alt="Catálogo" style="height: 50px;">
+        </td>
+      </ng-container>
+
+      <!-- Columna PDF -->
+      <ng-container matColumnDef="pdf">
+        <th mat-header-cell *matHeaderCellDef> PDF </th>
+        <td mat-cell *matCellDef="let catalog">
+          <a [href]="catalog.pdfUrl" target="_blank" mat-button color="primary">
+            <mat-icon>description</mat-icon>
+            Ver PDF
+          </a>
+        </td>
+      </ng-container>
+
+      <!-- Columna Acciones -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let catalog">
+          <button mat-icon-button color="accent" (click)="editCatalog(catalog)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteCatalog(catalog)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+  <!-- Vista de Formulario -->
+  <div *ngIf="showForm" class="card">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>{{ isEditing ? 'Editar' : 'Nuevo' }} Catálogo</h2>
+        <button mat-button color="primary" (click)="toggleForm()">
+          <mat-icon>arrow_back</mat-icon>
+          Volver
+        </button>
+      </div>
+
+      <form [formGroup]="catalogForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <mat-form-field class="w-100">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="name" placeholder="Ingrese el nombre">
+            <mat-error *ngIf="catalogForm.get('name')?.hasError('required')">
+              El nombre es requerido
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Imagen</label>
+          <input 
+            type="file" 
+            class="form-control" 
+            accept="image/*"
+            (change)="onImageSelected($event)">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">PDF</label>
+          <input 
+            type="file" 
+            class="form-control" 
+            accept=".pdf"
+            (change)="onPdfSelected($event)">
+        </div>
+
+        <div class="d-flex justify-content-end gap-2">
+          <button mat-button type="button" (click)="toggleForm()">Cancelar</button>
+          <button mat-raised-button color="primary" type="submit">
+            {{ isEditing ? 'Actualizar' : 'Guardar' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

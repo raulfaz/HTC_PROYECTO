@@ -1,45 +1,141 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { MatCardModule } from '@angular/material/card';
-
-interface Catalog {
-  id: number;
-  name: string;
-  pdfUrl: string;
-}
+import { CommonModule } from '@angular/common';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { FormsModule, ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import Swal from 'sweetalert2';
+import { CatalogService } from '../services/catalogos.service';
 
 @Component({
-  selector: 'app-catalogos',
+  selector: 'app-catalogs',
   standalone: true,
-  imports: [FormsModule,MatCardModule],
+  imports: [
+    CommonModule,
+    MatTableModule,
+    MatButtonModule,
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule
+  ],
   templateUrl: './catalogos.component.html',
-  styleUrl: './catalogos.component.css'
+  styleUrls: ['./catalogos.component.css']
 })
 export class CatalogosComponent implements OnInit {
-  catalogs: Catalog[] = [];
-  selectedFile: File | null = null;
+  showForm = false;
+  isEditing = false;
+  catalogForm: FormGroup;
+  displayedColumns: string[] = ['name', 'image', 'pdf', 'actions'];
+  catalogs: any[] = []; // Lista de catálogos
+  selectedImage: File | null = null;
+  selectedPdf: File | null = null;
+  catalogId: number | null = null; // ID del catálogo que se está editando
+
+  constructor(
+    private fb: FormBuilder,
+    private catalogService: CatalogService
+  ) {
+    this.catalogForm = this.fb.group({
+      name: ['', Validators.required],
+      image: [null],
+      pdf: [null]
+    });
+  }
 
   ngOnInit() {
-    // Aquí irían las llamadas a los servicios para obtener los catálogos reales
-    this.catalogs = [
-      { id: 1, name: 'Catálogo Verano 2024', pdfUrl: 'assets/catalogs/verano2024.pdf' },
-      { id: 2, name: 'Catálogo Invierno 2024', pdfUrl: 'assets/catalogs/invierno2024.pdf' },
-    ];
+    this.fetchCatalogs(); // Cargar los catálogos al iniciar el componente
   }
 
-  onFileSelected(event: any) {
-    this.selectedFile = event.target.files[0] as File;
+  fetchCatalogs() {
+    this.catalogService.getCatalogs().subscribe(
+      (data) => {
+        this.catalogs = data;
+      },
+      (error) => {
+        console.error('Error al obtener los catálogos', error);
+      }
+    );
   }
 
-  uploadCatalog() {
-    // Lógica para subir el catálogo
-    if (this.selectedFile) {
-      // Aquí iría la lógica para enviar el archivo al servidor
-      console.log('Subiendo archivo:', this.selectedFile.name);
+  toggleForm() {
+    this.showForm = !this.showForm;
+    if (!this.showForm) {
+      this.isEditing = false;
+      this.catalogForm.reset();
     }
   }
 
-  deleteCatalog(catalog: Catalog) {
-    // Lógica para eliminar un catálogo
+  onImageSelected(event: any) {
+    this.selectedImage = event.target.files[0];
+  }
+
+  onPdfSelected(event: any) {
+    this.selectedPdf = event.target.files[0];
+  }
+
+  editCatalog(catalog: any) {
+    this.isEditing = true;
+    this.showForm = true;
+    this.catalogId = catalog.id;
+    this.catalogForm.patchValue({
+      name: catalog.name
+    });
+  }
+
+  deleteCatalog(catalog: any) {
+    if (confirm('¿Estás seguro de que deseas eliminar este catálogo?')) {
+      this.catalogService.deleteCatalog(catalog.id).subscribe(
+        () => {
+          Swal.fire('Eliminado', 'Catálogo eliminado con éxito', 'success');
+          this.fetchCatalogs();
+        },
+        (error) => {
+          Swal.fire('Error', 'No se pudo eliminar el catálogo', 'error');
+        }
+      );
+    }
+  }
+
+  onSubmit() {
+    if (this.catalogForm.valid) {
+      const formData = new FormData();
+      formData.append('name', this.catalogForm.get('name')?.value);
+      if (this.selectedImage) {
+        formData.append('image', this.selectedImage);
+      }
+      if (this.selectedPdf) {
+        formData.append('pdf', this.selectedPdf);
+      }
+
+      if (this.isEditing && this.catalogId) {
+        this.catalogService.updateCatalog(this.catalogId, formData).subscribe(
+          (response) => {
+            Swal.fire('Actualizado', 'Catálogo actualizado con éxito', 'success');
+            this.toggleForm();
+            this.fetchCatalogs(); // Actualizar lista de catálogos
+          },
+          (error) => {
+            Swal.fire('Error', 'No se pudo actualizar el catálogo', 'error');
+          }
+        );
+      } else {
+        this.catalogService.createCatalog(formData).subscribe(
+          (response) => {
+            Swal.fire('Guardado', 'Catálogo creado con éxito', 'success');
+            this.toggleForm();
+            this.fetchCatalogs(); // Actualizar lista de catálogos
+          },
+          (error) => {
+            Swal.fire('Error', 'No se pudo guardar el catálogo', 'error');
+          }
+        );
+      }
+    } else {
+      this.catalogForm.markAllAsTouched();
+    }
   }
 }

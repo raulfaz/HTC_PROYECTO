@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatToolbar } from '@angular/material/toolbar';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatIcon } from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
@@ -15,13 +15,10 @@ import {MatListModule} from '@angular/material/list';
 })
 export class PrincipalComponent {
   isSidenavOpen = true;
-  constructor(private router: Router) {}
 
   toggleSidenav() {
     this.isSidenavOpen = !this.isSidenavOpen;
   }
-  logout() {
-    this.router.navigate(['/inicio']); 
-  }
+  logout() {}
 
 }
