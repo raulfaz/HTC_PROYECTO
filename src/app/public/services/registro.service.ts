@@ -34,31 +34,5 @@ export class RegistroService {
   deleteFormulario(id: string): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
-  // Enviar correo de prueba denegado
-  // Enviar correo de prueba denegado
-  // enviarCorreoDePruebaDenegado(
-  //   cedula: string,
-  //   email: string,
-  //   formulario: any
-  // ): Observable<any> {
-  //   const data = { cedula, email, formulario };
-  //   return this.http.post(`${this.apiUrl}/enviarCorreoDePruebaDenegado`, data);
-  // }
 
-  // enviarCorreoAceptado(
-  //   cedula: string,
-  //   email: string,
-  //   formulario: any
-  // ): Observable<any> {
-  //   const data = { cedula, email, formulario };
-  //   return this.http.post(`${this.apiUrl}/enviarCorreoAceptado`, data);
-  // }
-  // enviarCorreoJuego(
-  //   cedula: string,
-  //   email: string,
-  //   formulario: any
-  // ): Observable<any> {
-  //   const data = { cedula, email, formulario };
-  //   return this.http.post(`${this.apiUrl}/enviarCorreoJuego`, data);
-  // }
 }
