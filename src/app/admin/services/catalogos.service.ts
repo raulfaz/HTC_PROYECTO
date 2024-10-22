@@ -124,14 +124,14 @@ export class CatalogService {
   
 }
 // En el frontend, añade logs para debug
-fetch(`${environment.apiUrl}/catalogos`)
-  .then(response => {
-    console.log('Respuesta recibida:', response);
-    return response.json();
-  })
-  .then(data => {
-    console.log('Datos:', data);
-  })
-  .catch(error => {
-    console.error('Error detallado:', error);
-  });
+// fetch(`${environment.apiUrl}/catalogos`)
+//   .then(response => {
+//     console.log('Respuesta recibida:', response);
+//     return response.json();
+//   })
+//   .then(data => {
+//     console.log('Datos:', data);
+//   })
+//   .catch(error => {
+//     console.error('Error detallado:', error);
+//   });
