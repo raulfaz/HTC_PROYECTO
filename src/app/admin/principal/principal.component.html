@@ -9,9 +9,10 @@
         <mat-icon>picture_as_pdf</mat-icon>
         <span>Catálogos</span>
       </a>
-      <a mat-list-item routerLink="/admin/perfil-usuario">
+    
+      <a mat-list-item routerLink="/admin/###">
         <mat-icon>person</mat-icon>
-        <span>Perfil</span>
+        <span>Cotizaciones</span>
       </a>
     </mat-nav-list>
   </mat-sidenav>
@@ -27,8 +28,8 @@
         <mat-icon>account_circle</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/dashboard/profile">
-          <mat-icon>person</mat-icon>
+        <button mat-menu-item routerLink="/admin/perfil-usuario">
+          <mat-icon >person</mat-icon>
           <span>Perfil</span>
         </button>
         <button mat-menu-item (click)="logout()">

@@ -1,6 +1,7 @@
-<div class="row mb-4">
+
+  <div class="row p-4 " style="background-color: rgb(237, 241, 243);">
     <div>
-      <h3 class="text-center p-4" style="color: rgb(13, 65, 111)" data-aos="zoom-in">
+      <h3 class="text-center " style="color: rgb(13, 65, 111)" data-aos="zoom-in">
         <strong>
           <b>CATÁLOGOS</b>
         </strong>
@@ -11,21 +12,20 @@
         <button class="catalog-arrow left" (click)="prevCatalog()">
           <mat-icon>chevron_left</mat-icon>
         </button>
-  
         <div class="catalog-wrapper">
           <div class="catalog-line"></div>
           <div class="catalog-items" [style.transform]="'translateX(' + currentPosition + 'px)'">
-            <div class="catalog-item" *ngFor="let catalog of catalogData">
-              <img [src]="catalog.imageUrl" class="d-block" alt="{{ catalog.name }}" (click)="openCatalog(catalog.pdfUrl)">
-              <a [href]="catalog.pdfUrl" target="_blank">Ver PDF</a> <!-- Enlace al PDF -->
+            <div class="catalog-item" *ngFor="let catalog of catalogs">
+              <img [src]="getFileUrl(catalog.image_url)" class="d-block" [alt]="catalog.name"
+                (click)="openCatalog(catalog.pdf_url)">
+              <!-- <h4>{{catalog.name}}</h4>
+              <a [href]="getFileUrl(catalog.pdf_url)" target="_blank" class="pdf-link">Ver PDF</a> -->
             </div>
           </div>
         </div>
-  
         <button class="catalog-arrow right" (click)="nextCatalog()">
           <mat-icon>chevron_right</mat-icon>
         </button>
       </div>
     </div>
   </div>
-  

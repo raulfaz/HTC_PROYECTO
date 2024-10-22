@@ -1,7 +1,7 @@
 <div class="container mt-4">
   <!-- Vista de Lista -->
   <div *ngIf="!showForm">
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-4 mt-4">
       <h2>Catálogos</h2>
       <button mat-raised-button color="primary" (click)="toggleForm()">
         <mat-icon>add</mat-icon>
@@ -17,10 +17,10 @@
       </ng-container>
 
       <!-- Columna Imagen -->
-      <ng-container matColumnDef="image">
+      <ng-container matColumnDef="image" >
         <th mat-header-cell *matHeaderCellDef> Imagen </th>
         <td mat-cell *matCellDef="let catalog">
-          <img [src]="catalog.imageUrl" alt="Catálogo" style="height: 50px;">
+          <img [src]="getFileUrl(catalog.image_url)" [alt]="catalog.name" width="100px">
         </td>
       </ng-container>
 
@@ -28,7 +28,7 @@
       <ng-container matColumnDef="pdf">
         <th mat-header-cell *matHeaderCellDef> PDF </th>
         <td mat-cell *matCellDef="let catalog">
-          <a [href]="catalog.pdfUrl" target="_blank" mat-button color="primary">
+          <a [href]="getFileUrl(catalog.pdf_url)" target="_blank" mat-button color="primary">
             <mat-icon>description</mat-icon>
             Ver PDF
           </a>

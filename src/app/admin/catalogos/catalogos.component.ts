@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit,Inject,PLATFORM_ID } from '@angular/core';
+import { CommonModule,isPlatformBrowser } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -37,7 +37,8 @@ export class CatalogosComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private catalogService: CatalogService
+    private catalogosService: CatalogService,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.catalogForm = this.fb.group({
       name: ['', Validators.required],
@@ -51,7 +52,7 @@ export class CatalogosComponent implements OnInit {
   }
 
   fetchCatalogs() {
-    this.catalogService.getCatalogs().subscribe(
+    this.catalogosService.getCatalogs().subscribe(
       (data) => {
         this.catalogs = data;
       },
@@ -88,7 +89,7 @@ export class CatalogosComponent implements OnInit {
 
   deleteCatalog(catalog: any) {
     if (confirm('¿Estás seguro de que deseas eliminar este catálogo?')) {
-      this.catalogService.deleteCatalog(catalog.id).subscribe(
+      this.catalogosService.deleteCatalog(catalog.id).subscribe(
         () => {
           Swal.fire('Eliminado', 'Catálogo eliminado con éxito', 'success');
           this.fetchCatalogs();
@@ -112,7 +113,7 @@ export class CatalogosComponent implements OnInit {
       }
 
       if (this.isEditing && this.catalogId) {
-        this.catalogService.updateCatalog(this.catalogId, formData).subscribe(
+        this.catalogosService.updateCatalog(this.catalogId, formData).subscribe(
           (response) => {
             Swal.fire('Actualizado', 'Catálogo actualizado con éxito', 'success');
             this.toggleForm();
@@ -123,7 +124,7 @@ export class CatalogosComponent implements OnInit {
           }
         );
       } else {
-        this.catalogService.createCatalog(formData).subscribe(
+        this.catalogosService.createCatalog(formData).subscribe(
           (response) => {
             Swal.fire('Guardado', 'Catálogo creado con éxito', 'success');
             this.toggleForm();
@@ -136,6 +137,15 @@ export class CatalogosComponent implements OnInit {
       }
     } else {
       this.catalogForm.markAllAsTouched();
+    }
+  }
+  getFileUrl(path: string): string {
+    return this.catalogosService.getFileUrl(path);
+  }
+  openCatalog(pdfUrl: string) {
+    if (isPlatformBrowser(this.platformId)) {
+      const url = this.getFileUrl(pdfUrl);
+      window.open(url, '_blank');
     }
   }
 }

@@ -5,12 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { CatalogCarouselComponent } from '../catalogos/catalogos.component';
+import { CatalogosPublicComponent } from '../catalogos-public/catalogos-public.component';
+
 
 @Component({
   selector: 'app-productos',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatIconModule, MatPaginatorModule,CatalogCarouselComponent],
+  imports: [CommonModule, FormsModule, MatIconModule, MatPaginatorModule,CatalogosPublicComponent],
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css']
 })
@@ -20,34 +21,7 @@ export class ProductosComponent {
   servicios = SERVICIOS;
   serviciosFiltrados = [...this.servicios];
   busqueda: string = '';
-  currentPosition = 0;
-  itemWidth = 200;
 
-  catalogData = [
-    { name: 'Catálogo 1', image: '/../assets/catalogs/catalog1.jpg', pdf: 'catalog1.pdf' },
-    { name: 'Catálogo 2', image: '/../assets/catalogs/catalog2.jpeg', pdf: 'catalog2.pdf' },
-    { name: 'Catálogo 3', image: '/../assets/catalogs/catalog3.jpg', pdf: 'catalog3.pdf' }
-  ];
-
-  // openCatalog(pdf: string) {
-  //   window.open(/../assets/catalogs/${pdf}, '_blank');
-  // }
-
-  prevCatalog() {
-    if (this.currentPosition === 0) {
-      this.currentPosition = -(this.itemWidth * (this.catalogData.length - 1));
-    } else {
-      this.currentPosition += this.itemWidth;
-    }
-  }
-
-  nextCatalog() {
-    if (this.currentPosition <= -(this.itemWidth * (this.catalogData.length - 1))) {
-      this.currentPosition = 0;
-    } else {
-      this.currentPosition -= this.itemWidth;
-    }
-  }
 
   buscarProductos() {
     const busquedaNormalizada = this.busqueda

@@ -32,7 +32,8 @@
     </div>
     <div class="col-md-8 col-lg-9">
       <h4>Buscar Productos</h4>
-      <input type="text" class="form-control mb-3" [(ngModel)]="busqueda" placeholder="Buscar productos..." (input)="buscarProductos()">
+      <input type="text" class="form-control mb-3" [(ngModel)]="busqueda" placeholder="Buscar productos..."
+        (input)="buscarProductos()">
       <div class="row">
         <div class="col-md-4" *ngFor="let servicio of serviciosFiltrados">
           <div class="card mb-3">
@@ -44,15 +45,12 @@
           </div>
         </div>
       </div>
-      <mat-paginator [length]="serviciosFiltrados.length"
-                     [pageSize]="6"
-                     [pageSizeOptions]="[6, 12, 24, 100]"
-                     aria-label="Select page"
-                     (page)="actualizarPaginador()">
+      <mat-paginator [length]="serviciosFiltrados.length" [pageSize]="6" [pageSizeOptions]="[6, 12, 24, 100]"
+        aria-label="Select page" (page)="actualizarPaginador()">
       </mat-paginator>
     </div>
   </div>
 </div>
-<div class="container">
-  <app-catalog-carousel></app-catalog-carousel>
+<div class="container-fluid m-0">
+  <app-catalogos-public></app-catalogos-public>
 </div>
