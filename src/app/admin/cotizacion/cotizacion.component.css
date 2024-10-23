@@ -1,0 +1,22 @@
+.example-container {
+  position: relative;
+}
+
+.example-table-container {
+  min-height: 200px;
+  max-height: 400px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-column-telefono,
+.mat-column-email {
+  width: 150px;
+}
+
+.mat-column-nombre {
+  width: 200px;
+}
