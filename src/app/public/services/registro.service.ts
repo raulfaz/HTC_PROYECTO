@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,9 @@ export class RegistroService {
   }
 
   getAllFormularios(): Observable<any> {
-    return this.http.get(this.apiUrl);
+    return this.http.get(this.apiUrl).pipe(
+      tap((data: any) => console.log(data))
+    );
   }
 
   getFormularioById(id: string): Observable<any> {
@@ -33,4 +36,6 @@ export class RegistroService {
   deleteFormulario(id: string): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
+
+ 
 }

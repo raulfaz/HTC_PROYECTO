@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatToolbar } from '@angular/material/toolbar';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatIcon } from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
@@ -19,6 +19,15 @@ export class PrincipalComponent {
   toggleSidenav() {
     this.isSidenavOpen = !this.isSidenavOpen;
   }
-  logout() {}
+  constructor(private router: Router) {}
+
+  logout() {
+    // Logic to close the session (e.g., clearing tokens, user data, etc.)
+    // For example, localStorage.clear();
+    localStorage.clear();
+
+    // Navigate to the home page
+    this.router.navigate(['/']);
+  }
 
 }

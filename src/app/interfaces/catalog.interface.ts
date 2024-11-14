@@ -1,16 +1,23 @@
-export interface Catalog {
-    id: number;
-    name: string;
-    image_url?: string;
-    pdf_url?: string;
-    created_at: string;
-    updated_at: string;
-  }
-  
-  export interface ApiResponse {
-    success: boolean;
-    message?: string;
-    data?: any;
-    error?: any;
-  }
-  
+export interface Categoria {
+  id: number;
+  nombre: string;
+  descripcion?: string;
+  created_at?: string;
+  updated_at?: string;
+}
+
+export interface Catalogo {
+  id?: number;
+  name: string;
+  categoria_id: number;
+  image_path?: string;
+  pdf_path?: string;
+  created_at?: Date;
+  updated_at?: Date;
+}
+
+export interface ApiResponse {
+  success: boolean;
+  message: string;
+  data?: any;
+}

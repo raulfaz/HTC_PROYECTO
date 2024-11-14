@@ -3,16 +3,18 @@
   </div>
   <form (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
     <div class="mb-3">
-      <label for="username" class="form-label">Nombre de usuario:</label>
+      <label for="username" class="form-label">Nuevo usuario:</label>
       <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username" required>
     </div>
     <div class="mb-3">
       <label for="password" class="form-label">Nueva contraseña:</label>
-      <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password">
+      <input type="password" class="form-control" id="password" [(ngModel)]="newPassword" name="newPassword">
     </div>
     <div class="mb-3">
-      <label for="confirmPassword" class="form-label">Confirmar contraseña:</label>
-      <input type="password" class="form-control" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword">
+      <label for="confirmPassword" class="form-label">Confirmar con contraseña actual:</label>
+      <input type="password" class="form-control" id="confirmPassword" [(ngModel)]="currentPassword" name="currentPassword">
     </div>
     <button type="submit" class="btn btn-primary">Actualizar Perfil</button>
   </form>
+  <p *ngIf="message">{{ message }}</p>
+  

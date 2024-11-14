@@ -8,6 +8,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import Swal from 'sweetalert2';
 import { CatalogService } from '../services/catalogos.service';
+import { MatOption } from '@angular/material/core';
+import { MatSelect } from '@angular/material/select';
+import { CategoriaService } from '../services/categoria.service';
+import { Categoria } from '../../interfaces/catalog.interface';
 
 @Component({
   selector: 'app-catalogs',
@@ -20,7 +24,10 @@ import { CatalogService } from '../services/catalogos.service';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatOption,
+    MatInputModule,
+    MatSelect
   ],
   templateUrl: './catalogos.component.html',
   styleUrls: ['./catalogos.component.css']
@@ -29,13 +36,17 @@ export class CatalogosComponent implements OnInit {
   showForm = false;
   isEditing = false;
   catalogForm: FormGroup;
-  displayedColumns: string[] = ['name', 'image', 'pdf', 'actions'];
+  displayedColumns: string[] = ['position', 'name', 'image', 'pdf', 'actions'];
   catalogs: any[] = [];
   selectedImage: File | null = null;
   selectedPdf: File | null = null;
   catalogId: number | null = null;
+  categories: Categoria[] = [];
+
+  
 
   constructor(
+    private categoriaService: CategoriaService,
     private fb: FormBuilder,
     private catalogosService: CatalogService,
     @Inject(PLATFORM_ID) private platformId: Object
@@ -43,23 +54,32 @@ export class CatalogosComponent implements OnInit {
     this.catalogForm = this.fb.group({
       name: ['', Validators.required],
       image: [null, Validators.required],
-      pdf: [null, Validators.required]
+      pdf: [null, Validators.required],
+      categoria_id: [null, Validators.required]
     });
   }
 
   ngOnInit() {
     this.fetchCatalogs();
+    this.loadCategories();
   }
 
-  fetchCatalogs() {
-    this.catalogosService.getCatalogs().subscribe(
-      (data) => {
-        this.catalogs = data;
-      },
-      (error) => {
-        console.error('Error al obtener los catálogos', error);
-        Swal.fire('Error', 'No se pudieron cargar los catálogos', 'error');
-      }
+  // fetchCatalogs() {
+  //   this.catalogosService.getCatalogs().subscribe(
+  //     (data) => {
+  //       this.catalogs = data;
+  //     },
+  //     (error) => {
+  //       console.error('Error al obtener los catálogos', error);
+  //       Swal.fire('Error', 'No se pudieron cargar los catálogos', 'error');
+  //     }
+  //   );
+  // }
+
+  loadCategories(): void {
+    this.categoriaService.getCategories().subscribe(
+      (data) => this.categories = data,
+      (error) => console.error('Error al cargar categorías:', error)
     );
   }
 
@@ -68,16 +88,50 @@ export class CatalogosComponent implements OnInit {
     if (!this.showForm) {
       this.isEditing = false;
       this.catalogForm.reset();
-      // Restauramos las validaciones originales
       this.catalogForm = this.fb.group({
         name: ['', Validators.required],
         image: [null, Validators.required],
-        pdf: [null, Validators.required]
+        pdf: [null, Validators.required],
+        categoria_id: [null, Validators.required]
       });
       this.selectedImage = null;
       this.selectedPdf = null;
     }
   }
+
+  getFileUrl(path: string): string {
+    if (!path) return '';
+    return this.catalogosService.getFileUrl(path);
+  }
+
+  handleImageError(event: any) {
+    console.error('Error al cargar la imagen:', event);
+    event.target.src = 'assets/images/no-image.png'; // Asegúrate de tener esta imagen
+  }
+
+  openCatalog(pdfPath: string) {
+    if (!pdfPath) return;
+    
+    if (isPlatformBrowser(this.platformId)) {
+      const url = this.getFileUrl(pdfPath);
+      console.log('Abriendo PDF:', url); // Para debugging
+      window.open(url, '_blank');
+    }
+  }
+
+  fetchCatalogs() {
+    this.catalogosService.getCatalogs().subscribe(
+      (data) => {
+        console.log('Datos de catálogos recibidos:', data); // Para debugging
+        this.catalogs = data;
+      },
+      (error) => {
+        console.error('Error al obtener los catálogos:', error);
+        Swal.fire('Error', 'No se pudieron cargar los catálogos', 'error');
+      }
+    );
+  }
+
 
   onImageSelected(event: any) {
     if (event.target.files && event.target.files[0]) {
@@ -104,24 +158,26 @@ export class CatalogosComponent implements OnInit {
     this.showForm = true;
     this.catalogId = catalog.id;
     
-    // Guardamos las URLs existentes
+    // Pre-fill form fields and indicate "existing" if file URLs are present
     this.catalogForm.patchValue({
       name: catalog.name,
       image: catalog.image_url ? 'existing' : null,
-      pdf: catalog.pdf_url ? 'existing' : null
+      pdf: catalog.pdf_url ? 'existing' : null,
+      categoria_id: catalog.categoria_id
     });
-
-    // Si estamos editando, no requerimos nuevos archivos si ya existen
+  
+    // Clear validators for existing files
     if (catalog.image_url) {
       this.catalogForm.get('image')?.clearValidators();
-      this.catalogForm.get('image')?.updateValueAndValidity();
     }
-    
     if (catalog.pdf_url) {
       this.catalogForm.get('pdf')?.clearValidators();
-      this.catalogForm.get('pdf')?.updateValueAndValidity();
     }
+  
+    this.catalogForm.get('image')?.updateValueAndValidity();
+    this.catalogForm.get('pdf')?.updateValueAndValidity();
   }
+  
 
   deleteCatalog(catalog: any) {
     Swal.fire({
@@ -148,34 +204,26 @@ export class CatalogosComponent implements OnInit {
     });
   }
 
-  onSubmit() {
-    if (!this.catalogForm.get('name')?.valid) {
-      Swal.fire('Error', 'El nombre es requerido', 'error');
-      return;
+  onSubmit(): void {
+    if (this.catalogForm.valid) {
+      // Aquí puedes enviar el formulario con los valores
+      console.log('Formulario enviado', this.catalogForm.value);
+    } else {
+      console.log('Formulario no válido');
     }
-
-    if (!this.isEditing) {
-      // Validaciones para nuevo catálogo
-      if (!this.selectedImage) {
-        Swal.fire('Error', 'Debe seleccionar una imagen', 'error');
-        return;
-      }
-      if (!this.selectedPdf) {
-        Swal.fire('Error', 'Debe seleccionar un PDF', 'error');
-        return;
-      }
-    }
-
+  
     const formData = new FormData();
     formData.append('name', this.catalogForm.get('name')?.value);
-    
+    formData.append('categoria_id', this.catalogForm.get('categoria_id')?.value);
+  
     if (this.selectedImage) {
       formData.append('image', this.selectedImage);
     }
     if (this.selectedPdf) {
       formData.append('pdf', this.selectedPdf);
     }
-
+  
+    // Diferenciar entre creación y edición
     if (this.isEditing && this.catalogId) {
       this.catalogosService.updateCatalog(this.catalogId, formData).subscribe(
         (response) => {
@@ -184,6 +232,7 @@ export class CatalogosComponent implements OnInit {
           this.fetchCatalogs();
         },
         (error) => {
+          console.error('Error al actualizar catálogo:', error);
           Swal.fire('Error', 'No se pudo actualizar el catálogo', 'error');
         }
       );
@@ -195,35 +244,10 @@ export class CatalogosComponent implements OnInit {
           this.fetchCatalogs();
         },
         (error) => {
+          console.error('Error al guardar catálogo:', error);
           Swal.fire('Error', 'No se pudo guardar el catálogo', 'error');
         }
       );
     }
-  }
-
-  getFileUrl(path: string): string {
-    return this.catalogosService.getFileUrl(path);
-  }
-
-  openCatalog(pdfUrl: string) {
-    if (isPlatformBrowser(this.platformId)) {
-      const url = this.getFileUrl(pdfUrl);
-      window.open(url, '_blank');
-    }
-  }
-
-  // Método auxiliar para validar campos individuales
-  isFieldInvalid(fieldName: string): boolean {
-    const field = this.catalogForm.get(fieldName);
-    return field ? field.invalid && (field.dirty || field.touched) : false;
-  }
-
-  // Método auxiliar para obtener el mensaje de error de un campo
-  getErrorMessage(fieldName: string): string {
-    const field = this.catalogForm.get(fieldName);
-    if (field?.hasError('required')) {
-      return `El ${fieldName} es requerido`;
-    }
-    return '';
-  }
+  }   
 }

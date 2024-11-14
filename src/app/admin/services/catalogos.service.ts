@@ -1,10 +1,11 @@
 import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { isPlatformBrowser } from '@angular/common';
 import { environment } from '../../../environments/environment';
-import { Catalog, ApiResponse } from '../../interfaces/catalog.interface';
+import { Catalogo, ApiResponse } from '../../interfaces/catalog.interface';
+import { Category } from '../../interfaces/category.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -19,68 +20,119 @@ export class CatalogService {
     this.apiUrl = `${environment.apiUrl}/catalogos`;
   }
 
-  // Método privado para manejar errores
-  private handleError(error: HttpErrorResponse) {
-    let errorMessage = 'Ha ocurrido un error desconocido';
-
-    if (error.error && typeof error.error === 'object') {
-      errorMessage = `Error: ${error.error.message || errorMessage}`;
-    } else {
-      errorMessage = `Código de error: ${error.status}\nMensaje: ${error.message}`;
+  // Método para obtener los headers de autorización
+  private getAuthHeaders(): HttpHeaders {
+    let headers = new HttpHeaders();
+    
+    if (isPlatformBrowser(this.platformId)) {
+      try {
+        const token = localStorage.getItem('authToken');
+        if (token) {
+          return new HttpHeaders({
+            'Authorization': `Bearer ${token}`
+          });
+        } else {
+          // Si no hay token, agregamos un header por defecto
+          return new HttpHeaders({
+            'Content-Type': 'application/json'
+          });
+        }
+      } catch (error) {
+        console.error('Error accediendo al localStorage:', error);
+        return headers;
+      }
     }
-
-    console.error(errorMessage);
-    return throwError(() => new Error(errorMessage));
+    
+    return headers;
   }
-
-  // Obtener todos los catálogos
-  getCatalogs(): Observable<Catalog[]> {
-    return this.http.get<Catalog[]>(this.apiUrl).pipe(
+  
+  // Método para obtener todos los catálogos
+  getCatalogs(): Observable<Catalogo[]> {
+    return this.http.get<Catalogo[]>(this.apiUrl).pipe(
       retry(2),
       catchError(this.handleError)
     );
   }
-
-  // Obtener un catálogo por ID
-  getCatalog(id: number): Observable<Catalog> {
-    return this.http.get<Catalog>(`${this.apiUrl}/${id}`).pipe(
+  
+  // Método para verificar si el usuario está autenticado
+  private isAuthenticated(): boolean {
+    if (isPlatformBrowser(this.platformId)) {
+      try {
+        const token = localStorage.getItem('authToken');
+        return !!token;
+      } catch (error) {
+        console.error('Error verificando autenticación:', error);
+        return false;
+      }
+    }
+    return false;
+  }
+  
+  // También deberías aplicar la verificación a los otros métodos
+  getCatalog(id: number): Observable<Catalogo> {
+    return this.http.get<Catalogo>(`${this.apiUrl}/${id}`).pipe(
       retry(2),
       catchError(this.handleError)
     );
   }
-
-  // Crear un nuevo catálogo
-  createCatalog(formData: FormData): Observable<Catalog> {
-    return this.http.post<Catalog>(this.apiUrl, formData).pipe(
+  
+  createCatalog(formData: FormData): Observable<Catalogo> {
+    if (!this.isAuthenticated()) {
+      return throwError(() => new Error('No autorizado. Por favor inicie sesión.'));
+    }
+  
+    return this.http.post<Catalogo>(this.apiUrl, formData, { 
+      headers: this.getAuthHeaders() 
+    }).pipe(
       catchError(this.handleError)
     );
   }
-
-  // Actualizar un catálogo existente
-  updateCatalog(id: number, formData: FormData): Observable<Catalog> {
-    return this.http.put<Catalog>(`${this.apiUrl}/${id}`, formData).pipe(
+  
+  updateCatalog(id: number, formData: FormData): Observable<Catalogo> {
+    if (!this.isAuthenticated()) {
+      return throwError(() => new Error('No autorizado. Por favor inicie sesión.'));
+    }
+  
+    return this.http.put<Catalogo>(`${this.apiUrl}/${id}`, formData, { 
+      headers: this.getAuthHeaders() 
+    }).pipe(
       catchError(this.handleError)
     );
   }
-
-  // Eliminar un catálogo
+  
   deleteCatalog(id: number): Observable<ApiResponse> {
-    return this.http.delete<ApiResponse>(`${this.apiUrl}/${id}`).pipe(
+    if (!this.isAuthenticated()) {
+      return throwError(() => new Error('No autorizado. Por favor inicie sesión.'));
+    }
+  
+    return this.http.delete<ApiResponse>(`${this.apiUrl}/${id}`, { 
+      headers: this.getAuthHeaders() 
+    }).pipe(
       catchError(this.handleError)
     );
   }
 
   // Obtener URL completa de un archivo
-  getFileUrl(path: string | null | undefined): string {
+  getFileUrl(path: string): string {
     if (!path) return '';
     
-    if (path.startsWith('http://') || path.startsWith('https://')) {
-      return path;
-    }
+    // Limpia la ruta eliminando 'src' y convirtiendo backslashes a forward slashes
+    const cleanPath = path
+      .replace('src\\', '')
+      .replace('src/', '')
+      .replace(/\\/g, '/');
     
-    // Usar la base URL del environment
-    return `${environment.apiUrl}/${path.replace(/^\/+/, '')}`;
+    // Obtén el token
+    const headers = this.getAuthHeaders();
+    const token = headers.get('Authorization')?.split(' ')[1] || '';
+    
+    // Construye la URL completa
+    const fileUrl = `${environment.apiUrl}/${cleanPath}?token=${token}`;
+    
+    console.log('URL generada:', fileUrl); // Para debugging
+    return fileUrl;
   }
+
 
   // Validar tipo de archivo
   validateFileType(file: File, allowedTypes: string[]): boolean {
@@ -94,32 +146,73 @@ export class CatalogService {
   }
 
   // Crear FormData con validaciones
-  createFormData(name: string, image?: File, pdf?: File): FormData {
+  createFormDataWithValidation(catalog: {
+    name: string,
+    categoria_id: number,
+    image?: File,
+    pdf?: File
+  }): FormData {
     const formData = new FormData();
-    formData.append('name', name);
+    formData.append('name', catalog.name);
+    formData.append('categoria_id', catalog.categoria_id.toString());
 
-    if (image) {
-      if (!this.validateFileType(image, ['image/jpeg', 'image/png', 'image/gif'])) {
+    if (catalog.image) {
+      if (!this.validateFileType(catalog.image, ['image/jpeg', 'image/png', 'image/gif'])) {
         throw new Error('Tipo de imagen no válido. Use JPG, PNG o GIF.');
       }
-      if (!this.validateFileSize(image, 5)) { // 5MB máximo
+      if (!this.validateFileSize(catalog.image, 5)) {
         throw new Error('La imagen excede el tamaño máximo de 5MB.');
       }
-      formData.append('image', image);
+      formData.append('image', catalog.image);
     }
 
-    if (pdf) {
-      if (!this.validateFileType(pdf, ['application/pdf'])) {
+    if (catalog.pdf) {
+      if (!this.validateFileType(catalog.pdf, ['application/pdf'])) {
         throw new Error('El archivo debe ser un PDF.');
       }
-      if (!this.validateFileSize(pdf, 10)) { // 10MB máximo
+      if (!this.validateFileSize(catalog.pdf, 10)) {
         throw new Error('El PDF excede el tamaño máximo de 10MB.');
       }
-      formData.append('pdf', pdf);
+      formData.append('pdf', catalog.pdf);
     }
 
     return formData;
   }
 
+  // Manejo de errores HTTP
+ // Manejo de errores HTTP
+private handleError(error: any) {
+  let errorMessage = 'Error desconocido';
   
+  if (error instanceof HttpErrorResponse) {
+    // Error del lado del servidor
+    switch (error.status) {
+      case 401:
+        errorMessage = 'Sesión expirada o token inválido. Por favor inicie sesión nuevamente.';
+        break;
+      case 403:
+        errorMessage = 'No tiene permisos para realizar esta acción.';
+        break;
+      case 404:
+        errorMessage = 'Recurso no encontrado.';
+        break;
+      case 500:
+        errorMessage = 'Error interno del servidor.';
+        break;
+      default:
+        errorMessage = `Error del servidor: ${error.status}, ${error.message}`;
+    }
+
+    // Si hay un mensaje específico del servidor, úsalo
+    if (error.error?.message) {
+      errorMessage = error.error.message;
+    }
+  } else {
+    // Error del lado del cliente
+    errorMessage = error.message || 'Error de red o cliente desconocido';
+  }
+  
+  console.error('Error en CatalogService:', errorMessage);
+  return throwError(() => new Error(errorMessage));
+}
 }

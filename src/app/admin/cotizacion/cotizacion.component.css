@@ -14,9 +14,9 @@ table {
 
 .mat-column-telefono,
 .mat-column-email {
-  width: 150px;
+  width: 15px;
 }
 
 .mat-column-nombre {
-  width: 200px;
+  width: 25px;
 }
