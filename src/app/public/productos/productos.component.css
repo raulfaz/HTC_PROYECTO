@@ -1,4 +1,3 @@
-/* Hero Section -----------------------------------------------------*/
 .hero-section {
   background-image: url('/../assets/img-fondos/fondo1.jpg');
   background-size: cover;
@@ -44,4 +43,3 @@
 .hero-section h1 b, .hero-section p strong {
   font-size: 2rem;
 }
-
