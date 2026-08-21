@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class CarrosulComponent {
 
- imagenUno: string = '../../assets/img-carrosul/6.svg';
-  imagenDos: string = '../../assets/img-carrosul/4.svg';
-  imagenTres: string ='../../assets/img-carrosul/3.svg';
+ imagenUno: string = 'assets/img-carrosul/6.svg';
+  imagenDos: string = 'assets/img-carrosul/4.svg';
+  imagenTres: string ='assets/img-carrosul/3.svg';
 }
