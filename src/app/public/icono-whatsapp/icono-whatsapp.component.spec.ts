@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { IconoWhatsappComponent } from './icono-whatsapp.component';
+import { TEST_PROVIDERS } from '../../../test-setup';
 
 describe('IconoWhatsappComponent', () => {
   let component: IconoWhatsappComponent;
@@ -8,7 +9,8 @@ describe('IconoWhatsappComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [IconoWhatsappComponent]
+      imports: [IconoWhatsappComponent],
+      providers: TEST_PROVIDERS
     })
     .compileComponents();
     

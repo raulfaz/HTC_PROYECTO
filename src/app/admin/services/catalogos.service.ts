@@ -115,22 +115,25 @@ export class CatalogService {
   // Obtener URL completa de un archivo
   getFileUrl(path: string): string {
     if (!path) return '';
-    
-    // Limpia la ruta eliminando 'src' y convirtiendo backslashes a forward slashes
+
     const cleanPath = path
       .replace('src\\', '')
       .replace('src/', '')
-      .replace(/\\/g, '/');
-    
-    // Obtén el token
-    const headers = this.getAuthHeaders();
-    const token = headers.get('Authorization')?.split(' ')[1] || '';
-    
-    // Construye la URL completa
-    const fileUrl = `${environment.apiUrl}/${cleanPath}?token=${token}`;
-    
-    console.log('URL generada:', fileUrl); // Para debugging
-    return fileUrl;
+      .replace(/\\/g, '/')
+      .replace(/^\/+/, '');
+
+    try {
+      const apiBase = new URL(`${environment.apiUrl.replace(/\/+$/, '')}/`);
+      const fileUrl = new URL(cleanPath, apiBase);
+
+      if (fileUrl.origin !== apiBase.origin || !fileUrl.pathname.startsWith(apiBase.pathname)) {
+        return '';
+      }
+
+      return fileUrl.toString();
+    } catch {
+      return '';
+    }
   }
 
 

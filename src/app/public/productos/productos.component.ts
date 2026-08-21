@@ -9,7 +9,6 @@ import { Catalogo } from '../../interfaces/catalog.interface';
 import { Categoria } from '../../interfaces/catalog.interface';
 import { CatalogService } from '../../admin/services/catalogos.service';
 import { CategoriaService } from '../../admin/services/categoria.service';
-import { CatalogCarouselComponent } from "../catalogos/catalogos.component";
 
 @Component({
   selector: 'app-productos',
@@ -19,8 +18,7 @@ import { CatalogCarouselComponent } from "../catalogos/catalogos.component";
     FormsModule,
     MatIconModule,
     MatPaginatorModule,
-    CatalogosPublicComponent,
-    CatalogCarouselComponent
+    CatalogosPublicComponent
   ],
   templateUrl: './productos.component.html',
   styleUrl: './productos.component.css'
@@ -131,7 +129,7 @@ export class ProductosComponent implements OnInit {
   }
 
   getImageUrl(catalogo: Catalogo): string {
-    return catalogo.image_path ? this.catalogService.getFileUrl(catalogo.image_path) : '/assets/placeholder.jpg';
+    return catalogo.image_path ? this.catalogService.getFileUrl(catalogo.image_path) : 'assets/img-generales/logo.png';
   }
 
   getPdfUrl(catalogo: Catalogo): string {

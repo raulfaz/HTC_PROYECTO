@@ -16,9 +16,11 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Deploy to GitHub Pages
 
-The repository includes a GitHub Actions workflow that builds and deploys the application to GitHub Pages after pushing to `main`.
+The repository includes a GitHub Actions workflow that uses pnpm to build and deploy the application to GitHub Pages after pushing to `master`.
 
-In the repository settings, enable **Pages** with **GitHub Actions** as the source. The published application uses relative assets and hash-based routes so it works from a repository subpath.
+In the repository settings, enable **Pages** with **GitHub Actions** as the source. The published application uses `/HTC_PROYECTO/` as its base path and hash-based routes, and is expected at <https://raulfaz.github.io/HTC_PROYECTO/>.
+
+The API must be deployed separately at an HTTPS URL before API-backed features can work on GitHub Pages. The current development fallback (`http://HOST:3001/api`) is intentionally not treated as a production endpoint.
 
 ## Running unit tests
 

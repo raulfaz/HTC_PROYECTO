@@ -15,7 +15,7 @@ export class AuthGuard implements CanActivate {
   canActivate(): boolean {
     if (isPlatformBrowser(this.platformId)) {
       // Solo accedemos a localStorage si estamos en el navegador
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('authToken');
       if (token) {
         return true;
       } else {

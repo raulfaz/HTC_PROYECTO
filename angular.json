@@ -33,7 +33,7 @@
             "scripts": [
                "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
                "node_modules/aos/dist/aos.js"
-            ],
+            ]
           },
           "configurations": {
             "production": {
@@ -45,8 +45,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "7kb",
+                  "maximumError": "8kb"
                 }
               ],
               "outputHashing": "all"

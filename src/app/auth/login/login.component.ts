@@ -23,12 +23,9 @@ export class LoginComponent {
   onSubmit() {
     this.authService.login(this.username, this.password).subscribe({
       next: (response: any) => {
-        // Almacenar el token en localStorage cuando el login sea exitoso
         this.authService.saveToken(response.token);
-        localStorage.setItem('token', response.token);  // Guardar el token en localStorage
         localStorage.setItem('username', response.username);
-        this.router.navigate(['admin']); // Redirigir a otra página si el login es exitoso
-        console.log('Login exitoso', response);
+        this.router.navigate(['admin']);
       },
       error: (error: any) => {
         this.errorMessage = 'Credenciales incorrectas';

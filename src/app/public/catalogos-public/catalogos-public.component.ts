@@ -93,7 +93,9 @@ export class CatalogosPublicComponent implements OnInit, OnDestroy {
   openCatalog(pdfUrl: string) {
     if (isPlatformBrowser(this.platformId)) {
       const url = this.getFileUrl(pdfUrl);
-      window.open(url, '_blank');
+      if (url) {
+        window.open(url, '_blank', 'noopener,noreferrer');
+      }
     }
   }
 }

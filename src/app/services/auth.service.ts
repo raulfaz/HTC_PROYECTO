@@ -28,12 +28,13 @@ export class AuthService {
 
   // Método para cerrar sesión
   logout(): void {
-    localStorage.removeItem('authToken'); // Elimina el token al cerrar sesión
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('username');
   }
 
   updateProfile(currentPassword: string, newPassword?: string, newUsername?: string): Observable<any> {
     const headers = new HttpHeaders({
-      Authorization: `Bearer ${localStorage.getItem('token')}`
+      Authorization: `Bearer ${this.getToken() ?? ''}`
     });
 
     return this.http.put(

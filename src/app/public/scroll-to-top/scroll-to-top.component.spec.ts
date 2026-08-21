@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ScrollToTopComponent } from './scroll-to-top.component';
+import { TEST_PROVIDERS } from '../../../test-setup';
 
 describe('ScrollToTopComponent', () => {
   let component: ScrollToTopComponent;
@@ -8,7 +9,8 @@ describe('ScrollToTopComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ScrollToTopComponent]
+      imports: [ScrollToTopComponent],
+      providers: TEST_PROVIDERS
     })
     .compileComponents();
 

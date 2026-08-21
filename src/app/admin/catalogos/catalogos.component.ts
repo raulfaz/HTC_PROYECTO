@@ -106,7 +106,7 @@ export class CatalogosComponent implements OnInit {
 
   handleImageError(event: any) {
     console.error('Error al cargar la imagen:', event);
-    event.target.src = 'assets/images/no-image.png'; // Asegúrate de tener esta imagen
+    event.target.src = 'assets/img-generales/logo.png';
   }
 
   openCatalog(pdfPath: string) {
@@ -114,8 +114,9 @@ export class CatalogosComponent implements OnInit {
     
     if (isPlatformBrowser(this.platformId)) {
       const url = this.getFileUrl(pdfPath);
-      console.log('Abriendo PDF:', url); // Para debugging
-      window.open(url, '_blank');
+      if (url) {
+        window.open(url, '_blank', 'noopener,noreferrer');
+      }
     }
   }
 

@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CatalogosPublicComponent } from './catalogos-public.component';
+import { TEST_PROVIDERS } from '../../../test-setup';
 
 describe('CatalogosPublicComponent', () => {
   let component: CatalogosPublicComponent;
@@ -8,7 +9,8 @@ describe('CatalogosPublicComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CatalogosPublicComponent]
+      imports: [CatalogosPublicComponent],
+      providers: TEST_PROVIDERS
     })
     .compileComponents();
     

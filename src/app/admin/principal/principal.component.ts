@@ -5,6 +5,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatIcon } from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-principal',
@@ -19,14 +20,10 @@ export class PrincipalComponent {
   toggleSidenav() {
     this.isSidenavOpen = !this.isSidenavOpen;
   }
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   logout() {
-    // Logic to close the session (e.g., clearing tokens, user data, etc.)
-    // For example, localStorage.clear();
-    localStorage.clear();
-
-    // Navigate to the home page
+    this.authService.logout();
     this.router.navigate(['/']);
   }
 

@@ -75,7 +75,7 @@ export class CotizacionComponent implements AfterViewInit {
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
     
     // Abre la URL en una nueva pestaña
-    window.open(whatsappUrl, '_blank');
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   }
   
   
