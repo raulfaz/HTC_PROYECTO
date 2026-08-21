@@ -9,6 +9,7 @@ import { Catalogo } from '../../interfaces/catalog.interface';
 import { Categoria } from '../../interfaces/catalog.interface';
 import { CatalogService } from '../../admin/services/catalogos.service';
 import { CategoriaService } from '../../admin/services/categoria.service';
+import { CatalogCarouselComponent } from "../catalogos/catalogos.component";
 
 @Component({
   selector: 'app-productos',
@@ -18,7 +19,8 @@ import { CategoriaService } from '../../admin/services/categoria.service';
     FormsModule,
     MatIconModule,
     MatPaginatorModule,
-    CatalogosPublicComponent
+    CatalogosPublicComponent,
+    CatalogCarouselComponent
   ],
   templateUrl: './productos.component.html',
   styleUrl: './productos.component.css'
